@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Integrated Chinese L16–19 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;600;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F7F2; --card:#FFFFFF; --ink:#1E2B2F; --soft:#5B6B6E; --line:#D7DFD9;
+  --grid:#3F8A6E; --gridf:rgba(63,138,110,.28); --gridbg:rgba(63,138,110,.07);
+  --ok:#2F7D5B; --okbg:#E3F1EA; --bad:#B8362E; --badbg:#F8E5E3; --star:#C99316; --starbg:#FBF1D6;
+  --hz:"Noto Serif SC","Songti SC","SimSun",serif;
+  --ui:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131A1C; --card:#1B2427; --ink:#E3EBE7; --soft:#9AAAA6; --line:#2E3B3E;
+    --grid:#6CB99B; --gridf:rgba(108,185,155,.25); --gridbg:rgba(108,185,155,.07);
+    --ok:#6CC79C; --okbg:#1D3A2E; --bad:#F08A80; --badbg:#3E2220; --star:#E4B84A; --starbg:#3A3017;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131A1C; --card:#1B2427; --ink:#E3EBE7; --soft:#9AAAA6; --line:#2E3B3E;
+  --grid:#6CB99B; --gridf:rgba(108,185,155,.25); --gridbg:rgba(108,185,155,.07);
+  --ok:#6CC79C; --okbg:#1D3A2E; --bad:#F08A80; --badbg:#3E2220; --star:#E4B84A; --starbg:#3A3017;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);font-size:17px;line-height:1.55;min-height:100%}
+.hz{font-family:var(--hz)}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--grid);outline-offset:2px}
+.app{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:100vh}
+nav.rail{position:sticky;top:0;align-self:start;height:100vh;padding:28px 14px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:2px;overflow-y:auto}
+.brand{display:flex;gap:4px;margin:0 8px 22px}
+.brand .cell{width:40px;height:40px;font-size:26px}
+nav.rail button{display:flex;align-items:baseline;gap:10px;border:0;background:none;text-align:left;padding:9px 10px;border-radius:6px;color:var(--soft)}
+nav.rail button .zh{font-family:var(--hz);font-size:17px;color:var(--ink);min-width:2.2em}
+nav.rail button:hover{background:var(--gridbg)}
+nav.rail button[aria-current="true"]{background:var(--gridbg);color:var(--ink);box-shadow:inset 3px 0 0 var(--grid)}
+nav.rail .count{margin-left:auto;font-size:13px;background:var(--badbg);color:var(--bad);border-radius:10px;padding:0 7px}
+.theme-btn{margin-top:auto !important;font-size:14px}
+main{padding:40px clamp(18px,4vw,56px) 80px;max-width:900px;width:100%}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;font-weight:700}
+h2{font-size:22px;margin:34px 0 10px}
+h3{font-size:18px;margin:0 0 6px}
+p{margin:0 0 12px}
+.lead{color:var(--soft);margin-bottom:24px;max-width:62ch}
+.muted{color:var(--soft)}
+.small{font-size:14px}
+
+/* tianzige cell */
+.cell{display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--grid);font-family:var(--hz);color:var(--ink);
+  background:
+   linear-gradient(to right,transparent calc(50% - .5px),var(--gridf) calc(50% - .5px),var(--gridf) calc(50% + .5px),transparent calc(50% + .5px)),
+   linear-gradient(to bottom,transparent calc(50% - .5px),var(--gridf) calc(50% - .5px),var(--gridf) calc(50% + .5px),transparent calc(50% + .5px)),
+   linear-gradient(45deg,transparent calc(50% - .6px),var(--gridf) calc(50% - .6px),var(--gridf) calc(50% + .6px),transparent calc(50% + .6px)),
+   linear-gradient(-45deg,transparent calc(50% - .6px),var(--gridf) calc(50% - .6px),var(--gridf) calc(50% + .6px),transparent calc(50% + .6px)),
+   var(--card)}
+.cells{display:inline-flex}
+.cells .cell+.cell{border-left:0}
+.hero{display:flex;flex-wrap:wrap;gap:0;margin:6px 0 18px}
+.hero .cell{width:clamp(58px,11vw,92px);height:clamp(58px,11vw,92px);font-size:clamp(38px,7.5vw,64px);font-weight:600}
+
+.panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:16px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:7px;font-weight:700}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:default}
+.chip{border:1.5px solid var(--line);background:var(--card);padding:5px 12px;border-radius:999px;font-size:15px}
+.chip[aria-pressed="true"]{border-color:var(--grid);background:var(--gridbg);color:var(--ink);font-weight:700}
+.statline{display:flex;flex-wrap:wrap;gap:28px;margin:4px 0 6px}
+.stat b{display:block;font-size:26px}
+.stat span{color:var(--soft);font-size:14px}
+.lessons{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.lesson{display:flex;flex-direction:column;justify-content:flex-start;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;text-align:left}
+.lesson:hover{border-color:var(--grid)}
+.lesson .t{font-family:var(--hz);font-size:22px;font-weight:600}
+.lesson .s{color:var(--soft);font-size:14px}
+
+/* quiz */
+.qwrap{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px}
+.progress{height:6px;background:var(--gridbg);border-radius:3px;overflow:hidden;margin:6px 0 18px}
+.progress i{display:block;height:100%;background:var(--grid);transition:width .25s}
+.qmeta{display:flex;justify-content:space-between;font-size:14px;color:var(--soft)}
+.qprompt{font-size:22px;line-height:1.7;margin:4px 0 6px}
+.qprompt.zh{font-family:var(--hz)}
+.qctx{color:var(--soft);font-size:15px;margin-bottom:12px}
+.blank{display:inline-block;min-width:3.2em;border-bottom:2px solid var(--grid);margin:0 3px;transform:translateY(-4px)}
+.opts{display:grid;gap:9px;margin-top:12px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;border:1.5px solid var(--line);background:var(--card);border-radius:8px;padding:11px 14px;font-size:18px}
+.opt .k{font-size:13px;color:var(--soft);border:1px solid var(--line);border-radius:4px;padding:0 6px;margin-top:3px}
+.opt .v{font-family:var(--hz)}
+.opt:hover:not(:disabled){border-color:var(--grid)}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}
+.opt.bad{border-color:var(--bad);background:var(--badbg)}
+.opt:disabled{cursor:default}
+.feedback{margin-top:16px;padding:13px 16px;border-radius:8px;font-size:16px}
+.feedback.ok{background:var(--okbg)}
+.feedback.bad{background:var(--badbg)}
+.feedback b{display:block;margin-bottom:2px}
+.feedback .zh{font-family:var(--hz);font-size:19px}
+.qnav{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+.slots{min-height:56px;border:1.5px dashed var(--grid);border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:10px 0}
+.slots.ok{border-style:solid;border-color:var(--ok);background:var(--okbg)}
+.slots.bad{border-style:solid;border-color:var(--bad);background:var(--badbg)}
+.bank{display:flex;flex-wrap:wrap;gap:7px}
+.tile{font-family:var(--hz);font-size:19px;border:1.5px solid var(--line);background:var(--paper);border-radius:6px;padding:6px 11px}
+.tile:hover{border-color:var(--grid)}
+.tile.used{visibility:hidden}
+.pre{font-family:var(--hz);font-size:19px}
+textarea,input[type=text]{width:100%;font-family:var(--hz);font-size:20px;padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink)}
+textarea{min-height:80px;resize:vertical}
+
+/* grammar */
+.gtabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:12px}
+.gcard summary{list-style:none;cursor:pointer;padding:16px 20px;display:flex;align-items:baseline;gap:12px}
+.gcard summary::-webkit-details-marker{display:none}
+.gcard summary .gt{font-family:var(--hz);font-size:20px;font-weight:600}
+.gcard summary .ge{color:var(--soft);font-size:15px}
+.gcard summary::after{content:"+";margin-left:auto;color:var(--grid);font-size:22px;line-height:1}
+.gcard[open] summary::after{content:"–"}
+.gbody{padding:0 20px 18px}
+.struct{font-family:var(--hz);font-size:18px;background:var(--gridbg);border-left:3px solid var(--grid);padding:10px 14px;border-radius:0 6px 6px 0;margin:4px 0 12px}
+.ex{margin:0 0 9px}
+.ex .zh{font-family:var(--hz);font-size:19px;display:block}
+.ex .en{color:var(--soft);font-size:15px}
+.pit{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--hz);font-size:17px;margin:10px 0}
+.pit .y{color:var(--ok)} .pit .n{color:var(--bad);text-decoration:line-through;text-decoration-thickness:1.5px}
+table.dir{border-collapse:collapse;font-family:var(--hz);margin:8px 0 14px;font-size:17px}
+.tablewrap{overflow-x:auto}
+table.dir td,table.dir th{border:1px solid var(--line);padding:6px 10px;text-align:center}
+table.dir th{font-family:var(--ui);font-size:14px;color:var(--soft);font-weight:400}
+
+/* flashcards */
+.fc{perspective:1200px;margin:10px 0 14px}
+.fc-in{position:relative;min-height:290px;border-radius:12px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.fc.flip .fc-in{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;background:var(--card);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
+.fc-back{transform:rotateY(180deg)}
+.fc-face .big{font-family:var(--hz);font-size:clamp(40px,9vw,70px);font-weight:600;line-height:1.2}
+.fc-face .py{font-size:24px;margin-top:8px}
+.fc-face .en{font-size:20px;color:var(--soft);margin-top:4px}
+.badge{display:inline-block;font-size:13px;padding:1px 8px;border-radius:10px;background:var(--gridbg);color:var(--soft)}
+.badge.star{background:var(--starbg);color:var(--star);font-weight:700}
+@media (prefers-reduced-motion: reduce){.fc-in,.progress i{transition:none}}
+
+.vlist{width:100%;border-collapse:collapse}
+.vlist td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.vlist td.h{font-family:var(--hz);font-size:19px;white-space:nowrap}
+.vlist td.p{color:var(--soft);white-space:nowrap}
+
+/* reading */
+.passage{font-family:var(--hz);font-size:20px;line-height:2;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:14px}
+.passage p{margin:0 0 10px;text-indent:2em}
+.trans{font-size:16px;color:var(--soft);background:var(--gridbg);padding:14px 18px;border-radius:8px;margin-bottom:14px}
+
+/* writing */
+.canvaswrap{position:relative;display:inline-block;touch-action:none;margin:12px 0}
+.canvaswrap canvas{display:block;border-radius:2px}
+.overlay{position:absolute;inset:0;display:flex;pointer-events:none}
+.overlay span{display:flex;align-items:center;justify-content:center;font-family:var(--hz);color:var(--grid);opacity:.38}
+
+.summary-list{list-style:none;padding:0;margin:0}
+.summary-list li{border-top:1px solid var(--line);padding:12px 0}
+.summary-list .zh{font-family:var(--hz);font-size:18px}
+.bar{display:flex;align-items:center;gap:10px;margin:6px 0}
+.bar .lbl{width:120px;font-size:14px;color:var(--soft)}
+.bar .track{flex:1;height:10px;background:var(--gridbg);border-radius:5px;overflow:hidden}
+.bar .track i{display:block;height:100%;background:var(--grid)}
+.bar .val{width:52px;text-align:right;font-size:14px}
+.empty{padding:28px;text-align:center;color:var(--soft);border:1.5px dashed var(--line);border-radius:10px}
+.kbd{font-size:13px;color:var(--soft)}
+
+@media (max-width:760px){
+  .app{grid-template-columns:1fr}
+  nav.rail{position:sticky;top:0;height:auto;flex-direction:row;padding:8px 10px;padding-top:calc(8px + env(safe-area-inset-top,0px));margin-top:calc(-1 * env(safe-area-inset-top,0px));overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);background:var(--paper);z-index:5;gap:4px}
+  .brand{display:none}
+  nav.rail button{flex-direction:column;align-items:center;gap:0;padding:6px 10px;white-space:nowrap;font-size:12px}
+  nav.rail button[aria-current="true"]{box-shadow:inset 0 -3px 0 var(--grid)}
+  nav.rail .count{margin:0;font-size:11px}
+  .theme-btn{margin-top:0 !important}
+  main{padding-top:24px}
+  .qprompt{font-size:20px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <nav class="rail" id="nav" aria-label="Sections"></nav>
+  <main id="main"></main>
+</div>
+<script>
+/* ================= DATA ================= */
+const LNAME={15:'Foundations',16:'第十六课',17:'第十七课',18:'第十八课',19:'第十九课'};
+const LEN={15:'Earlier lessons',16:'Dating',17:'Renting an apartment',18:'Sports',19:'Travel'};
+
+// [hanzi, pinyin, english, lesson, star(1=★ handwriting, 2=☆ highlighted)]
+const VOCAB_RAW=[
+['认识','rènshi','to recognize; to know (someone)',16],
+['同一…','tóngyī','the same (+ measure word)',16],
+['印象','yìnxiàng','impression',16],
+['聪明','cōngming','smart, bright',16],
+['用功','yònggōng','hardworking, diligent (in studies)',16],
+['功课','gōngkè','homework, schoolwork',16],
+['费（了）很大的力气','fèi (le) hěn dà de lìqi','to take a lot of effort',16],
+['买到','mǎidào','to succeed in buying',16],
+['找到／找不到','zhǎodào / zhǎo bu dào','to find / unable to find',16],
+['想起来','xiǎng qilai','to recall, to think of',16],
+['记得','jìde','to remember',16],
+['票','piào','ticket',16],
+['打扫','dǎsǎo','to clean up',16],
+['干净','gānjìng','clean',16],
+['听懂','tīngdǒng','to understand (by listening)',16,1],
+['看懂','kàndǒng','to understand (by reading or watching)',16],
+['广告','guǎnggào','advertisement',17],
+['公寓','gōngyù','apartment',17],
+['卧室','wòshì','bedroom',17],
+['客厅','kètīng','living room',17],
+['厨房','chúfáng','kitchen',17],
+['房租','fángzū','rent',17],
+['水电费','shuǐdiànfèi','utilities (water and electricity)',17],
+['宿舍','sùshè','dormitory',17],
+['校外','xiàowài','off campus',17],
+['…房…厅','…fáng …tīng','… bedroom(s), … living room(s)',17],
+['押金','yājīn','security deposit',17],
+['带家具','dài jiājù','furnished',17],
+['家具','jiājù','furniture',17,1],
+['不准','bù zhǔn','not allowed',17],
+['养宠物','yǎng chǒngwù','to keep a pet',17],
+['合适','héshì','suitable',17],
+['附近','fùjìn','vicinity; nearby',17],
+['出租','chūzū','to rent out',17],
+['书架','shūjià','bookshelf',17],
+['饭桌','fànzhuō','dining table',17],
+['椅子','yǐzi','chair',17],
+['公共汽车','gōnggòng qìchē','bus',17],
+['不用','bú yòng','need not',17],
+['走路','zǒu lù','to walk',17],
+['差不多','chàbuduō','about, almost, nearly',17],
+['另外','lìngwài','in addition',17],
+['方便','fāngbiàn','convenient',17],
+['房间','fángjiān','room',17,1],
+['书桌','shūzhuō','desk',17,1],
+['搬','bān','to move (house, objects)',17,1],
+['进…去／进…来','jìn…qu / jìn…lai','to go in / to come in',17,1],
+['有一点儿','yǒu yìdiǎnr','a little, somewhat (undesirable)',17,1],
+['慢','màn','slow',17,1],
+['沙发','shāfā','sofa',17,1],
+['坐／放 + 得下／不下','zuò/fàng de xià / bu xià','can / can\u2019t fit (people / things)',17,1],
+['对…有／没兴趣','duì… yǒu/méi xìngqù','(not) interested in…',17],
+['连…都／也…','lián… dōu/yě','even…',17],
+['什么…都／也…','shénme… dōu/yě','everything / nothing',17],
+['运动','yùndòng','sports, exercise',18],
+['没（有）时间','méi(yǒu) shíjiān','to have no time',18],
+['胖','pàng','fat, overweight',18],
+['跑步','pǎo bù','to jog, to run',18],
+['篮球','lánqiú','basketball',18],
+['网球','wǎngqiú','tennis',18],
+['美式足球','Měishì zúqiú','American football',18],
+['约','yuē','to make an appointment; to arrange (with someone)',18],
+['平常','píngcháng','usually',18],
+['躺','tǎng','to lie down',18],
+['听音乐','tīng yīnyuè','to listen to music',18],
+['为了','wèile','in order to; for the sake of',18],
+['下去','xiaqu','to continue (e.g. 胖下去)',18],
+['越来越','yuè lái yuè','more and more',18],
+['着','zhe','(particle for an accompanying action)',18],
+['危险','wēixiǎn','dangerous',18],
+['被','bèi','(passive marker) by',18],
+['拿走','názǒu','to take away',18],
+['信用卡','xìnyòngkǎ','credit card',18],
+['吵','chǎo','noisy',18],
+['水平','shuǐpíng','level, proficiency',18],
+['提高','tígāo','to improve, to raise',18],
+['打算','dǎsuan','to plan; plan',19],
+['计划','jìhuà','plan',19],
+['放假','fàng jià','to have a holiday or vacation',19],
+['暑假','shǔjià','summer vacation',19],
+['暑期班','shǔqībān','summer class',19],
+['实习','shíxí','to intern; internship',19],
+['旅行','lǚxíng','to travel',19],
+['旅行社','lǚxíngshè','travel agency',19],
+['订','dìng','to book, to reserve',19],
+['机票／飞机票','jīpiào / fēijīpiào','plane ticket',19],
+['火车票','huǒchēpiào','train ticket',19],
+['卖完','màiwán','to be sold out',19],
+['直飞','zhí fēi','to fly direct',19],
+['转机','zhuǎn jī','to change planes',19],
+['航班','hángbān','scheduled flight',19],
+['航空公司','hángkōng gōngsī','airline',19,2],
+['往返票','wǎngfǎnpiào','round-trip ticket',19],
+['单程票','dānchéngpiào','one-way ticket',19],
+['打折／打六折','dǎ zhé / dǎ liù zhé','to give a discount / 40% off',19],
+['靠','kào','next to; by',19],
+['走道','zǒudào','aisle',19],
+['窗户','chuānghu','window',19],
+['位子','wèizi','seat',19],
+['素餐','sùcān','vegetarian meal',19],
+['护照','hùzhào','passport',19],
+['签证','qiānzhèng','visa',19],
+['办','bàn','to handle, to do (paperwork)',19],
+['麻烦','máfan','troublesome; to trouble',19],
+['初／末','chū / mò','beginning / end (of a period)',19],
+['要是…就好了','yàoshi… jiù hǎo le','it would be great if…; if only…',19],
+['马上','mǎshàng','immediately, right away',19],
+['赶快','gǎnkuài','right away, quickly, hurry',19],
+['比','bǐ','compared with (comparison)',19,2],
+['有的…有的…','yǒude… yǒude…','some… others…',19],
+['哪个…就…哪个／哪儿…就…哪儿','nǎge… jiù… nǎge','whichever… / wherever…',19]
+];
+const VOCAB=VOCAB_RAW.map((v,i)=>({id:'v'+i,h:v[0],p:v[1],e:v[2],L:v[3],star:v[4]||0}));
+
+/* Grammar cards */
+const DIRTABLE=`<div class="tablewrap"><table class="dir"><tr><th></th><th>上 up</th><th>下 down</th><th>进 in</th><th>出 out</th><th>回 back</th><th>过 across</th><th>起 up</th></tr>
+<tr><th>来 toward</th><td>上来</td><td>下来</td><td>进来</td><td>出来</td><td>回来</td><td>过来</td><td>起来</td></tr>
+<tr><th>去 away</th><td>上去</td><td>下去</td><td>进去</td><td>出去</td><td>回去</td><td>过去</td><td>—</td></tr></table></div>`;
+const GRAMMAR=[
+{id:'g16_tongyi',L:16,t:'同一 vs. 一样',e:'the same',s:'同一 + MW + N　｜　一样的 + N　｜　A 跟 B 一样 + Adj.',n:'Before a noun, 同一 must take a measure word, while 一样 must take 的. 一样 can also be a predicate or appear in a comparison.',ex:[['她们俩在同一个学校学习。','They study at the same school.'],['她们俩穿一样的衣服。','They wear identical clothes.'],['我和她一样，都喜欢喝茶。','She and I are alike: we both like tea.'],['这本书跟那本书一样贵。','This book is as expensive as that one.']],pit:[['同一个学校','同一学校的'],['一样的衣服','一样衣服']]},
+{id:'g16_kuai',L:16,t:'快 + duration + 了',e:'almost (a length of time)',s:'(已经) 快 + time duration + 了',n:'Indicates that an amount of time is approaching a certain point.',ex:[['他们认识已经快半年了。','They have known each other for almost half a year.']]},
+{id:'g16_yinxiang',L:16,t:'对……的印象',e:'impression of',s:'A + 对 + B + (的)印象 + Adj.　=　B + 给 + A + (的)印象 + Adj.',n:'Both patterns mean the same thing; swap A and B when switching between 对 and 给. The adjective is an evaluation such as 很好、不好、不错, never something unrelated like 漂亮. For a specific impression: A 对 B 的印象是 + clause.',ex:[['李友对王朋的印象很好。','Li You has a very good impression of Wang Peng.'],['王朋给李友的印象很好。','Wang Peng made a very good impression on Li You.']],pit:[['印象很好','印象很漂亮']]},
+{id:'g16_feili',L:16,t:'费了……才……',e:'only after a lot of effort',s:'S + 费了很大的力气 + 才 + V(result)',n:'Something was achieved only after spending considerable time or effort. 才 marks the late or difficult achievement.',ex:[['王朋费了很大的力气才买到票。','Wang Peng got the tickets only after a lot of effort.']]},
+{id:'g16_jide',L:16,t:'记得 vs. 想起来',e:'remember vs. recall',s:'记得 = state of remembering　｜　想起来 = act of retrieving　→　不记得 / 想不起来',n:'记得 focuses on what is remembered; 想起来 focuses on the process of calling something back to mind. Their negatives are 不记得 and 想不起来.',ex:[['我记得今天下午要开会，可是我想不起来在哪儿开会。','I remember there\u2019s a meeting this afternoon, but I can\u2019t recall where.'],['李友不记得费先生了。','Li You doesn\u2019t remember Mr. Fei.']]},
+{id:'g16_haohaor',L:16,t:'好好儿 + V',e:'properly, to one\u2019s heart\u2019s content',s:'好好儿 + V (+ V)',n:'Emphasizes doing something carefully, properly, or to one\u2019s satisfaction.',ex:[['这个周末我要好好儿玩儿玩儿。','This weekend I\u2019m going to really have fun.']]},
+{id:'g16_desc',L:16,t:'Descriptive complements',e:'how an action is done',s:'S + V + (O + V) + 得 + complement',n:'If the verb has an object, repeat the verb before 得. For the negative, replace 很 with 不.',ex:[['李友跳舞跳得不错。','Li You dances pretty well.'],['他写汉字写得很快。','He writes characters quickly.'],['昨天我打球打得很累。','Yesterday I played ball until I was tired.']],pit:[['写汉字写得很快','写汉字得很快'],['写得不快','不写得快']]},
+{id:'g16_pot',L:16,t:'Potential complements',e:'can / can\u2019t achieve a result',s:'V + 得 + complement　｜　V + 不 + complement',n:'To say a result can\u2019t be achieved, use the potential complement, not 不能 + V + complement. Common forms: 吃/看/做/写 得完 不完; 看/听 得懂 不懂; 买/找/看/听/做 得到 不到.',ex:[['这些菜太多了，我吃不完。','There\u2019s too much food; I can\u2019t finish it.'],['今天的功课我一个小时做不完。','I can\u2019t finish today\u2019s homework in an hour.'],['你看得懂看不懂中文电影？','Can you understand Chinese movies?']],pit:[['听不懂','不能听懂'],['吃不完','吃得不完']]},
+{id:'g16_dir',L:16,t:'Directional complements',e:'direction of movement',s:'V + 上/下/进/出/回/过/起 + 来/去　｜　把 + O + V + 进/出… (+ place) + 来/去',n:'The first part shows the direction; 来 means toward the speaker, 去 away from the speaker. A place word goes between the two parts.',x:DIRTABLE,ex:[['我把书带来了。','I brought the book (here).'],['请把床搬进房间去。','Please move the bed into the room.'],['老师走进教室来。','The teacher walked into the classroom (toward me).'],['我要从宿舍搬出去。','I want to move out of the dorm.']],pit:[['搬进房间去','搬进去房间']]},
+{id:'g16_jiu',L:16,t:'就 = only',e:'only',s:'就 + noun / pronoun',n:'Before a noun or pronoun, 就 can mean \u201conly\u201d (只有). English \u201conly\u201d in translations can often be 就.',ex:[['我们都不喜欢他，就你喜欢他！','None of us like him; only you do!'],['那个饭馆儿就两个菜好吃。','At that restaurant only two dishes are good.']]},
+
+{id:'g17_twole',L:17,t:'V 了 + duration + 了',e:'has been doing (and still is)',s:'S + V(O V) + 了 + duration + 了',n:'With two 了, the action has lasted this long and is still going. With an object, repeat the verb. With only the first 了, the action is finished: 她病了三天 (she was sick for three days).',ex:[['我在这套公寓住了差不多两年了。','I\u2019ve lived in this apartment for almost two years.'],['我们看电影看了一个小时了。','We\u2019ve been watching the movie for an hour.'],['王朋在学校的宿舍住了两个学期了。','Wang Peng has lived in the dorm for two semesters.']]},
+{id:'g17_lian',L:17,t:'连……都/也……',e:'even',s:'连 + N (extreme example) + 都/也 + V',n:'Emphasizes an extreme or unexpected example. The object moves in front of the verb.',ex:[['小李的中文不好，连"天"都不会写。','Little Li\u2019s Chinese is poor; he can\u2019t even write 天.'],['学校的宿舍连厨房都没有。','The dorm doesn\u2019t even have a kitchen.']],pit:[['连"天"都不会写','不会写连"天"都']]},
+{id:'g17_xia',L:17,t:'V 得下 / V 不下',e:'enough room for',s:'坐/放/住 + 得下 / 不下 + sb/sth',n:'Whether a place or container has room. Match the verb: 坐 for seating people, 放 for putting things, 住 for housing people. Combines with 连……都/也.',ex:[['我的桌子很大，放得下两个电脑。','My desk is big; it can fit two computers.'],['这套沙发坐不下三个人。','This sofa can\u2019t seat three people.'],['我的厨房很小，连冰箱都放不下。','My kitchen is tiny; it can\u2019t even fit a fridge.']]},
+{id:'g17_heshi',L:17,t:'对……合适',e:'suitable for',s:'S + 对 + person + (不)合适',n:'Says whether something is a good fit for someone.',ex:[['这套公寓对学生很合适。','This apartment suits students well.'],['这儿不准养宠物，对我们不合适。','No pets allowed here, so it doesn\u2019t suit us.']]},
+{id:'g17_duo',L:17,t:'多 for approximate numbers',e:'more than, …-odd',s:'Num + 多 + MW (10s)　｜　Num + MW + 多 (divisible units)',n:'If the unit can\u2019t be divided, 多 precedes the measure word: 十多个学生. If the unit can be divided and the number isn\u2019t a multiple of 10, 多 follows: 六块多钱、四个多星期. With multiples of 10 either works, but the range differs: 十多块钱 = 10–20, 十块多钱 = 10–11.',ex:[['中文课有十多个学生。','The Chinese class has ten-odd students.'],['我学中文学了一年多了。','I\u2019ve been studying Chinese for over a year.']]},
+{id:'g17_youyidianr',L:17,t:'有一点儿 + Adj. vs. Adj. + 一点儿',e:'a bit too… / a bit more…',s:'有一点儿 + Adj. (complaint)　｜　有没有 / 能不能 + Adj. + 一点儿 (request)',n:'有一点儿 + Adj. describes something slightly unsatisfactory. Adj. + 一点儿 asks for a change. Use 有没有 to ask if another option exists; use 能不能 to ask someone to change something.',ex:[['这双鞋有一点儿大，有没有小一点儿的？','These shoes are a bit big; do you have smaller ones?'],['房租有一点儿贵，能不能便宜一点儿？','The rent is a bit high; could it be cheaper?'],['老师，您说得有一点儿快，可以慢一点儿吗？','Teacher, you\u2019re speaking a bit fast; could you slow down?']],pit:[['有一点儿贵','贵有一点儿']]},
+{id:'g17_qp',L:17,t:'Question pronoun + 都/也',e:'everything / nothing / everyone / no one',s:'(N) + QP (+ MW) + 都/也 + (不/没) + VP',n:'什么、谁、哪儿 take no measure word. After a plural noun, 哪 takes the right measure word (这些人 → 哪个；那些书 → 哪本). Use 不 for present or future, 没 for past or completed actions.',ex:[['小白什么书都爱看。','Xiao Bai loves reading all kinds of books.'],['在那个班，我谁都不认识。','I don\u2019t know anyone in that class.'],['中国我哪儿都没去过。','I haven\u2019t been anywhere in China.'],['那些书他哪本都看过。','He\u2019s read every one of those books.']]},
+{id:'g17_xingqu',L:17,t:'对……有/没兴趣',e:'(not) interested in',s:'S + 对 + N/VP + (很)有兴趣 / 没(有)兴趣',n:'Expresses interest or lack of interest.',ex:[['我对中国电影很有兴趣。','I\u2019m very interested in Chinese movies.'],['高文中对运动没有兴趣，所以越来越胖了。','Gao Wenzhong isn\u2019t interested in exercise, so he keeps getting heavier.']]},
+{id:'g17_lingwai',L:17,t:'另外',e:'in addition',s:'Sentence 1。另外，sentence 2。',n:'Adds one more piece of information, usually at the start of a new clause or sentence.',ex:[['这套公寓很便宜。另外，你也不用付水电费。','This apartment is cheap. Also, you don\u2019t pay utilities.'],['要多付一个月的房租当押金，另外，我们公寓不准养宠物。','You pay an extra month as a deposit; also, no pets.']]},
+{id:'g17_words',L:17,t:'附近・带・差不多・不准',e:'useful apartment words',s:'Place + 附近　｜　带家具　｜　差不多 + amount　｜　不准 + V',n:'附近 = in the vicinity of; 带 = comes with/includes; 差不多 = about, almost; 不准 = not permitted.',ex:[['学校附近有很多外国饭馆。','There are many foreign restaurants near the school.'],['这套公寓不带家具。','This apartment isn\u2019t furnished.'],['房租加水电费差不多八百美元。','Rent plus utilities is about $800.']]},
+
+{id:'g18_yuelaiyue',L:18,t:'越来越 + Adj.',e:'more and more',s:'S + 越来越 + Adj. (+ 了)',n:'Something is becoming more and more a certain way. Don\u2019t add 很.',ex:[['你平常吃得那么多，又不运动，当然越来越胖了。','You eat so much and don\u2019t exercise — of course you\u2019re getting heavier.']],pit:[['越来越胖','越来越很胖']]},
+{id:'g18_freq',L:18,t:'Frequency with 次',e:'how often',s:'S + time period + V + number + 次 (+ O)',n:'The time period sets the interval; 次 counts. With an object, number + 次 goes between the verb and the object.',ex:[['我一个星期打三次网球。','I play tennis three times a week.'],['她一个月去两次健身房。','She goes to the gym twice a month.'],['我一个星期运动两三次。','I exercise two or three times a week.']],pit:[['一个月打两次网球','一个月打网球两次']]},
+{id:'g18_duration',L:18,t:'Duration of an activity',e:'for how long',s:'S + V + O + V + duration　｜　S + V + duration + (的) + O',n:'With verb–object words like 跑步, 游泳, 睡觉, repeat the verb or put the duration between verb and object. No 了 = habit or plan; V了 = past event; V了…了 = still continuing.',ex:[['我每天跑步跑一个小时。','I run for an hour every day.'],['我明天想游半个小时的泳。','Tomorrow I want to swim for half an hour.'],['我昨天跑步跑了一个小时。','I ran for an hour yesterday.'],['我已经跑步跑了一个小时了，还想再跑十分钟。','I\u2019ve been running for an hour and want ten more minutes.']]},
+{id:'g18_inactive',L:18,t:'Duration + 没……了',e:'haven\u2019t done for…',s:'S + duration + 没 + VP + 了',n:'How long someone has gone without doing something. The duration goes before 没, and don\u2019t forget the final 了.',ex:[['我两个星期没游泳了。','I haven\u2019t swum in two weeks.'],['我四年多没回中国了。','I haven\u2019t been back to China for over four years.']],pit:[['两个星期没游泳了','没游泳两个星期了']]},
+{id:'g18_yue',L:18,t:'约・好/难 + V',e:'arrange with; easy/hard to',s:'约 + sb + V　｜　好/难 + V',n:'约 arranges plans with someone. 好 + V and 难 + V describe whether something is easy/pleasant or difficult to do: 好吃, 难写, 好听.',ex:[['这个周末我约了人打篮球。','This weekend I made plans with someone to play basketball.'],['这个汉字很难写。','This character is hard to write.']]},
+{id:'g18_xiaqu',L:18,t:'V/Adj. + 下去',e:'keep on, continue',s:'S + V/Adj. + 下去　｜　S + 把 + O + V + 下去',n:'下去 here means continuing into the future, not moving down. When there is an object, use the 把 pattern.',ex:[['中文很有意思，我要学下去。','Chinese is interesting; I\u2019ll keep studying it.'],['我想把中文学下去。','I want to keep studying Chinese.'],['如果天气一直冷下去，我们就不去打网球了。','If it stays cold, we won\u2019t play tennis.']],pit:[['把功课做下去','做功课下去']]},
+{id:'g18_zhe',L:18,t:'V₁ 着 (O) + V₂',e:'doing one thing while doing another',s:'S + V₁ + 着 (+ O₁) + V₂ (+ O₂)',n:'V₁ is a continuing posture, state, or background activity; V₂ is the main action. 着 (zhe) follows V₁, before its object.',ex:[['我喜欢躺着听音乐。','I like to listen to music lying down.'],['她坐着跟朋友聊天儿。','She chats with friends sitting down.'],['打着电话开车很危险。','Driving while on the phone is dangerous.']],pit:[['听着音乐做功课','听音乐着做功课']]},
+{id:'g18_weile',L:18,t:'为了……，……',e:'in order to',s:'为了 + goal, S + action',n:'Introduces the purpose of an action. Put 不 inside the goal to avoid something. Don\u2019t confuse with 因为, which gives a cause.',ex:[['为了提高中文水平，我每天都看中文电视。','To raise my Chinese level, I watch Chinese TV every day.'],['为了不迟到，她早上七点就出门了。','So as not to be late, she left at seven.']]},
+{id:'g18_haishi',L:18,t:'还是……吧',e:'had better…',s:'(rejected option), 还是 + alternative + 吧',n:'Suggests choosing another option, often after turning down the first.',ex:[['我看不懂美式足球，还是看别的吧。','I don\u2019t understand American football; let\u2019s watch something else.']]},
+{id:'g18_bei',L:18,t:'被 / 叫 / 让 passives',e:'passive voice',s:'Receiver + 被 (+ agent) + V + result　｜　Receiver + 叫/让 + agent + V + result',n:'Used when the affected person or thing is the topic, often for unwelcome events. Don\u2019t end on a bare verb. With 叫/让 an agent is required; use 人 if unknown. Compare: 我的书被弟弟拿走了 (about the book) vs. 弟弟把我的书拿走了 (about what the brother did).',ex:[['我的信用卡被人拿走了。','My credit card was taken.'],['我的网球拍被弟弟压坏了。','My racket got crushed by my little brother.'],['我的自行车叫人骑走了。','Someone rode off on my bike.'],['昨晚旁边宿舍的人开舞会，我被吵死了。','The dorm next door had a party last night; the noise drove me crazy.']],pit:[['被弟弟拿走了','被弟弟拿']]},
+
+{id:'g19_youde',L:19,t:'有的……，有的……',e:'some…, others…',s:'(group), 有的 + VP，有的 + VP',n:'Describes different members of the same group.',ex:[['我们的同学，有的去暑期班学习，有的去公司实习。','Of our classmates, some are taking summer classes and some are interning.']]},
+{id:'g19_yaoshi',L:19,t:'要是……就好了',e:'if only…; it would be great if…',s:'要是 + wish + 就好了',n:'Expresses a wish or hope.',ex:[['听说北京的秋天特别漂亮，要是能秋天去北京就好了。','I hear Beijing is beautiful in autumn; it\u2019d be great to go then.']]},
+{id:'g19_budeliao',L:19,t:'Adj. + 得不得了',e:'extremely',s:'S + Adj. + 得 + 不得了',n:'A strong reaction with no comparison standard. Don\u2019t add 很 or 非常. For a difference between two things, use 比 … 得多/多了 instead.',ex:[['现在的国际机票贵得不得了。','International tickets are terribly expensive now.'],['跑了一个小时以后，我累得不得了。','After running an hour, I was exhausted.']],pit:[['累得不得了','很累得不得了']]},
+{id:'g19_bi',L:19,t:'Comparisons with 比',e:'A is more … than B',s:'A + 比 + B + Adj. (+ 一点儿 / 得多 / 多了 / exact amount)',n:'一点儿 = a little; 得多 or 多了 = much; a number + unit = exact difference. Never put 很 before the adjective.',ex:[['这张机票比那张贵一点儿，但是飞行时间短得多。','This ticket is slightly pricier but the flight is much shorter.'],['我哥哥比我大五岁。','My brother is five years older than me.'],['我的房租比你的便宜五百块钱。','My rent is 500 cheaper than yours.']],pit:[['比我大五岁','比我很大']]},
+{id:'g19_dazhe',L:19,t:'打折',e:'discounts',s:'Item + 打 + number + 折',n:'The number is the share you PAY. 九折 = pay 90% (10% off); 八折 = 20% off; 七五折 = 25% off; 五折 = half price. Say 八折, not 八十折.',ex:[['这件衬衫打八折，原价一百块，现在八十块。','The shirt is 20% off: 100 originally, now 80.'],['这张机票打七五折，原价八百块，现在六百块。','The ticket is 25% off: 800 originally, now 600.']]},
+{id:'g19_numbers',L:19,t:'Large numbers: 万 and 亿',e:'over 1,000',s:'亿 group + 万 group + last four digits',n:'Group digits in fours from the right. 万 = 10,000; 亿 = 100,000,000. Use one 零 for each gap, not one per zero. Anchors: 十万 = 100,000; 一百万 = 1,000,000; 一千万 = 10,000,000; 十亿 = 1,000,000,000.',ex:[['50,740 → 五万零七百四十','5 × 10,000 + 740'],['273,608 → 二十七万三千六百零八','27 × 10,000 + 3,608'],['3,409,000,830 → 三十四亿零九百万零八百三十','34 亿 + 900 万 + 830']]},
+{id:'g19_na',L:19,t:'哪 + MW + N',e:'which',s:'哪 + measure word + noun',n:'Asks someone to select from a set. Use 家 for businesses, 张 for tickets, 个 for people and places. 哪儿 means \u201cwhere\u201d and takes no measure word.',ex:[['你想坐哪家航空公司的飞机？','Which airline do you want to fly?'],['你想买哪张机票？','Which ticket do you want to buy?']]},
+{id:'g19_qpref',L:19,t:'Question word…就…same question word',e:'whatever / wherever / whichever',s:'(S₁) + … QW，(S₂) + 就 + … + same QW',n:'The first question word sets an open choice; the repeated one refers back to that choice. 就 links them. The verbs may differ, but the question word must match.',ex:[['你想吃什么，就点什么。','Order whatever you want to eat.'],['你吃什么，我就吃什么。','I\u2019ll eat whatever you eat.'],['哪家航空公司的票便宜，我就买哪家的。','I\u2019ll buy from whichever airline is cheapest.'],['你想买什么，我就给你买什么。','I\u2019ll buy you whatever you want.']]},
+{id:'g19_words',L:19,t:'订・办・马上・赶快・初/末',e:'travel planning words',s:'订 + ticket/room　｜　办 + 签证/护照　｜　马上 / 赶快 + V　｜　month + 初/末',n:'订 = book or reserve; 办 = handle paperwork; 马上 = immediately; 赶快 = hurry up and…; 六月初 = early June, 六月末 = late June.',ex:[['我要给旅行社打电话订飞机票。','I need to call the travel agency to book a plane ticket.'],['我得马上去教室上课。','I have to go to class right now.']]},
+
+{id:'g15',L:15,t:'Structures from earlier lessons',e:'foundations L1–15',s:'的 / 得 / 地　｜　过　｜　把　｜　是……的　｜　再 / 又　｜　还是 / 或者　｜　一边……一边　｜　除了……以外',n:'These show up throughout Lessons 16–19, so mistakes here cost points everywhere: 的 before nouns, 得 after verbs for complements, 地 before verbs; 过 for past experience; 把 + object + verb + something; 是……的 for details of a past event; 再 for future repetition, 又 for past repetition; 还是 in questions, 或者 in statements.',ex:[['他跑得很快。','He runs fast.'],['我去过中国。','I\u2019ve been to China.'],['我是坐飞机来的。','I came by plane.'],['你喝茶还是喝咖啡？','Tea or coffee?']]}
+];
+
+/* Question bank: first option is correct (shuffled at display) */
+const Q=[];
+let qn=0;
+function mc(L,g,prompt,opts,ex,ctx){Q.push({id:'m'+(qn++),kind:'mc',L,g,prompt,opts,ans:opts[0],ex,ctx})}
+function od(L,g,en,chunks,pre,alts){Q.push({id:'o'+(qn++),kind:'order',L,g,en,chunks,pre:pre||'',alts:alts||[]})}
+function tr(L,g,en,model,alts){Q.push({id:'t'+(qn++),kind:'trans',L,g,en,model,alts:alts||[]})}
+
+// L16
+mc(16,'g16_tongyi','她们俩在___学校学习。',['同一个','一样','同一','一样的'],'同一 before a noun needs a measure word: 同一个学校.');
+mc(16,'g16_tongyi','她们俩穿___衣服。',['一样的','同一','一样','同一的'],'一样 before a noun needs 的: 一样的衣服.','They wear identical clothes.');
+mc(16,'g16_tongyi','这本书跟那本书___贵。',['一样','同一','同一个','一样的'],'A 跟 B 一样 + Adj. is the comparison use of 一样.');
+mc(16,'g16_yinxiang','王朋给李友的印象___。',['很好','很漂亮','很高','很快'],'Adjectives after 印象 are evaluations (很好、不好、不错), not unrelated descriptions.');
+mc(16,'g16_yinxiang','Which sentence means the same as 李友对王朋的印象很好？',['王朋给李友的印象很好。','李友给王朋的印象很好。','王朋对李友的印象很好。','李友对王朋给的印象很好。'],'Switching 对 → 给 swaps A and B: B 给 A 的印象.');
+mc(16,'g16_kuai','他们认识已经___半年了。',['快','就','才','还'],'快 + duration + 了 = almost that long.');
+mc(16,'g16_feili','王朋费了很大的力气___买到票。',['才','就','都','也'],'费了很大的力气……才…… — achieved only after effort.');
+mc(16,'g16_jide','我___今天下午要开会，可是我___在哪儿开会。',['记得 / 想不起来','想起来 / 不记得','记得 / 不想起来','想起来 / 想起来'],'记得 is the state of remembering; the negative of 想起来 is 想不起来.');
+mc(16,'g16_jide','李友不___费先生了。',['记得','想起来','想得起来','认识得'],'不记得 = doesn\u2019t remember (state).');
+mc(16,'g16_haohaor','这个周末我要___玩儿玩儿。',['好好儿','很好','好的','好得'],'好好儿 + V = do something properly or to one\u2019s heart\u2019s content.');
+mc(16,'g16_desc','他___很快。',['写汉字写得','写汉字得','写得汉字','汉字写'],'With an object, repeat the verb: 写汉字写得很快.');
+mc(16,'g16_desc','Negate: 他写汉字写得很快。',['他写汉字写得不快。','他不写汉字写得很快。','他写汉字不写得快。','他写汉字写不快。'],'Replace 很 with 不 inside the complement.');
+mc(16,'g16_desc','Which sentence is correct?',['他打扫房间打扫得很干净。','他打扫房间得很干净。','他打扫得房间很干净。','他很干净地打扫得房间。'],'V + O + V + 得 + complement.');
+mc(16,'g16_pot','这些菜太多了，我___。',['吃不完','不能吃完','吃得不完','没吃得完'],'Inability to achieve a result → potential complement V不完.');
+mc(16,'g16_pot','老师说得太快，我___。',['听不懂','不听懂','不能听懂','听得不懂'],'Use 听不懂, not 不能听懂.');
+mc(16,'g16_pot','这本书很难，你___？',['看得懂看不懂','看懂不看懂','能不能看懂得','看得懂不懂得'],'Affirmative–negative question with potential complements: 看得懂看不懂.');
+mc(16,'g16_pot','我找了半天，可是___我的书。',['找不到','不找到','没找得到','找得不到'],'找不到 = can\u2019t find (despite trying).');
+mc(16,'g16_jiu','我们都不喜欢他，___你喜欢他！',['就','才','都','也'],'就 + pronoun = only.');
+mc(16,'g16_dir','老师走进教室___。',['来','去','上','出'],'Toward the speaker (inside the classroom) → 来.','You are sitting inside the classroom.');
+mc(16,'g16_dir','请把床搬进房间___。',['去','来','上','起'],'Away from the speaker (who is outside the room) → 去.','The speaker is standing in the hallway.');
+mc(16,'g16_dir','我要从宿舍搬___。',['出去','进来','上来','回来'],'Moving out of the dorm, away from it → 出去.','I want to move out of the dorm.');
+mc(16,'g16_dir','Which sentence is correct?',['请把书桌搬进房间去。','请把书桌搬进去房间。','请把书桌搬房间进去。','请搬进房间书桌去。'],'Place word goes between 进 and 去.');
+od(16,'g16_desc','He writes characters quickly.',['他','写汉字','写得','很快'],'。');
+od(16,'g16_yinxiang','Li You has a good impression of Wang Peng.',['李友','对','王朋','的印象','很好'],'。');
+od(16,'g16_feili','Wang Peng got the tickets only after a lot of effort.',['王朋','费了很大的力气','才','买到','票'],'。');
+od(16,'g16_dir','Please move the bed into the room.',['请','把','床','搬进','房间','去'],'。');
+od(16,'g16_jide','I can\u2019t recall where I\u2019ve seen him.',['我','想不起来','在哪儿','见过','他'],'。');
+od(16,'g16_tongyi','The two of them study at the same school.',['她们俩','在','同一个','学校','学习'],'。');
+tr(16,'g16_jide','I remember we saw a movie together last month, but I can\u2019t recall the movie\u2019s name.','我记得上个月我们一起看过一个电影，可是我想不起来那个电影的名字。',['我记得上个月我们看过一个电影，可是我想不起来那个电影的名字。']);
+tr(16,'g16_jiu','Only Little Wang can understand this Chinese movie.','就小王看得懂这个中文电影。',['就小王看得懂这部中文电影。']);
+tr(16,'g16_yinxiang','Wang Peng made a very good impression on Li You.','王朋给李友的印象很好。',['李友对王朋的印象很好。']);
+tr(16,'g16_feili','It took me a lot of effort to get the room clean.','我费了很大的力气才把房间打扫干净。');
+tr(16,'g16_pot','There\u2019s too much homework; I can\u2019t finish it in an hour.','功课太多了，我一个小时做不完。');
+
+// L17
+mc(17,'g17_twole','我在这套公寓住了差不多两年___。（I still live here.）',['了','过','着','的'],'V了 + duration + 了 = still continuing.');
+mc(17,'g17_twole','我们___一个小时了。',['看电影看了','看电影了','看了电影','电影看看了'],'With an object, repeat the verb before the first 了.');
+mc(17,'g17_twole','她病了三天。 What does this mean?',['She was sick for three days (it\u2019s over).','She has been sick for three days and still is.','She will be sick for three days.','She gets sick every three days.'],'Only one 了 → completed. With a final 了 (病了三天了) it would still be ongoing.');
+mc(17,'g17_twole','Which means \u201cWang Peng has been living in the dorm for two semesters (and still is)\u201d?',['王朋在宿舍住了两个学期了。','王朋在宿舍住了两个学期。','王朋住两个学期在宿舍了。','王朋两个学期没住宿舍了。'],'Two 了s = continuing up to now.');
+mc(17,'g17_lian','小李的中文不好，___"天"都不会写。',['连','就','才','还'],'连……都 = even.');
+mc(17,'g17_lian','Which sentence is correct?',['他连"天"都不会写。','他不会写连"天"都。','他连都不会写"天"。','他都连"天"不会写。'],'连 + object moves in front of the verb.');
+mc(17,'g17_xia','这套沙发___三个人。',['坐不下','放不下','不坐下','坐得不下'],'People sitting → 坐; can\u2019t fit → 不下.');
+mc(17,'g17_xia','我的桌子很大，___两个电脑。',['放得下','坐得下','放下得','住得下'],'Things placed → 放; can fit → 得下.');
+mc(17,'g17_xia','Which sentence is correct?',['我的厨房很小，连冰箱都放不下。','我的厨房很小，连冰箱都坐不下。','我的厨房很小，冰箱连都放不下。','我的厨房很小，连冰箱放都不下。'],'连 + N + 都 + V不下; a fridge is placed, so 放.');
+mc(17,'g17_heshi','这套公寓___学生很合适。',['对','给','跟','在'],'对 + person + 合适.');
+mc(17,'g17_heshi','这儿不准养宠物，对我们___。',['不合适','没合适','合适不','不准合适'],'Negative: 对 + person + 不合适.');
+mc(17,'g17_duo','How do you say \u201cten-something students\u201d (between 10 and 20)?',['十多个学生','十个多学生','多十个学生','十个学生多'],'Students can\u2019t be divided → 多 before the measure word.');
+mc(17,'g17_duo','Which means \u201cbetween 10 and 11 dollars\u201d?',['十块多钱','十多块钱','多十块钱','十块钱多多'],'十块多 = 10.something; 十多块 = 10–20.');
+mc(17,'g17_duo','我学中文学了___了。（over a year）',['一年多','一多年','多一年','一年多多'],'A year is divisible (months) → 多 after the unit.');
+mc(17,'g17_youyidianr','这双鞋___大，有没有小___的？',['有一点儿 / 一点儿','一点儿 / 有一点儿','有一点儿 / 有一点儿','一点儿 / 一点儿'],'有一点儿 + Adj. complains; Adj. + 一点儿 asks for a change.');
+mc(17,'g17_youyidianr','房租有一点儿贵，___便宜一点儿？',['能不能','有没有','是不是','要不要'],'Asking someone to make a change → 能不能.');
+mc(17,'g17_youyidianr','这双鞋有一点儿大，___小一点儿的？',['有没有','能不能','会不会','对不对'],'Asking whether another option exists → 有没有.');
+mc(17,'g17_youyidianr','老师，您说得有一点儿快，可以___吗？',['慢一点儿','有一点儿慢','一点儿慢','慢有一点儿'],'A request uses Adj. + 一点儿.');
+mc(17,'g17_qp','在那个班，我___都不认识。',['谁','什么','哪儿','哪个们'],'谁 + 都 + 不 = no one.');
+mc(17,'g17_qp','那些书他___都看过。',['哪本','什么本','哪儿','谁'],'After a plural noun, 哪 + matching measure word.');
+mc(17,'g17_qp','中国我哪儿都___去过。',['没','不','别','还'],'Past experience → 没.');
+mc(17,'g17_qp','这些人我哪个都___认识。',['不','没','别','没有过'],'Present state → 不.');
+mc(17,'g17_qp','公寓里___家具都没有。',['什么','哪个','谁','哪儿'],'什么 + N + 都没有 = no N at all.');
+mc(17,'g17_xingqu','我妹妹___学中文很有兴趣。',['对','给','跟','在'],'对 + N/VP + 有兴趣.');
+mc(17,'g17_lingwai','这套公寓很便宜。___，你也不用付水电费。',['另外','还是','所以','可是'],'另外 adds another point.');
+mc(17,'g17_words','学校___有很多外国饭馆。',['附近','差不多','另外','合适'],'Place + 附近 = near the place.');
+mc(17,'g17_words','这套公寓不___家具，你得自己买。',['带','养','放','搬'],'带家具 = furnished.');
+mc(17,'g17_words','这儿不准___宠物。',['养','带','放','坐'],'养宠物 = keep a pet.');
+mc(17,'g17_words','房租加水电费___八百美元。',['差不多','另外','附近','有一点儿'],'差不多 = about.');
+od(17,'g17_twole','I\u2019ve lived in this apartment for almost two years (and still do).',['我','在这套公寓','住了','差不多','两年了'],'。');
+od(17,'g17_lian','My living room is big — it can seat even fifty people.',['连','五十个人','都','坐得下'],'我的客厅很大，');
+od(17,'g17_heshi','This apartment is very suitable for students.',['这套公寓','对','学生','很合适'],'。');
+od(17,'g17_qp','He hasn\u2019t read any of those books.',['那些书','他','哪本','都','没看过'],'。');
+od(17,'g17_xingqu','I\u2019m very interested in Chinese movies.',['我','对','中国电影','很有兴趣'],'。');
+od(17,'g17_duo','The Chinese class has ten-odd students.',['中文课','有','十多个','学生'],'。');
+tr(17,'g17_qp','This apartment doesn\u2019t have any furniture at all.','这套公寓什么家具都没有。');
+tr(17,'g17_lian','My desk is too small; it can\u2019t even fit a computer.','我的书桌太小，连电脑都放不下。',['我的书桌太小了，连电脑都放不下。']);
+tr(17,'g17_twole','I\u2019ve been living in the dorm for two semesters.','我在宿舍住了两个学期了。');
+tr(17,'g17_youyidianr','The rent is a little expensive. Could it be a little cheaper?','房租有一点儿贵，能不能便宜一点儿？');
+tr(17,'g17_heshi','Pets aren\u2019t allowed here, so it isn\u2019t suitable for us.','这儿不准养宠物，对我们不合适。',['这儿不准养宠物，所以对我们不合适。']);
+
+// L18
+mc(18,'g18_freq','我一个星期___。',['打三次网球','打网球三次','三次打网球','打网球了三次'],'Number + 次 goes between the verb and object.');
+mc(18,'g18_freq','她一个月去___健身房。',['两次','二次','两个次','次两'],'两 before a measure word; 次 needs no 个.');
+mc(18,'g18_freq','Which sentence is correct?',['我一个星期运动两三次。','我运动两三次一个星期。','我两三次一个星期运动。','我一个星期两三次运动。'],'Time period first, then V + number + 次.');
+mc(18,'g18_duration','我每天___一个小时。',['跑步跑','跑步','跑一个跑步','跑了步'],'With verb–object 跑步, repeat the verb before the duration.');
+mc(18,'g18_duration','我明天想游半个小时___泳。',['的','了','得','着'],'V + duration + 的 + O.');
+mc(18,'g18_duration','我昨天打了一个小时___网球。',['的','得','着','过'],'V了 + duration + 的 + O.');
+mc(18,'g18_duration','我已经跑步跑了一个小时了。 What does it mean?',['I\u2019ve been running for an hour (and am still going).','I ran for an hour yesterday.','I run for an hour every day.','I haven\u2019t run in an hour.'],'V了 + duration + 了 = elapsed time up to now.');
+mc(18,'g18_inactive','Which correctly says \u201cI haven\u2019t swum for two weeks\u201d?',['我两个星期没游泳了。','我没游泳两个星期了。','我没两个星期游泳了。','我两个星期不游泳。'],'Duration before 没, with final 了.');
+mc(18,'g18_inactive','我四年多没回中国___。',['了','过','着','的'],'Don\u2019t forget the sentence-final 了.');
+mc(18,'g18_xiaqu','我想把中文学___。',['下去','下来','起来','上去'],'下去 = continue into the future.');
+mc(18,'g18_xiaqu','Which sentence is correct?',['我要把功课做下去。','我要做功课下去。','我要做下去功课。','我要功课把做下去。'],'With an object, use 把 + O + V + 下去.');
+mc(18,'g18_xiaqu','如果天气一直冷___，我们就不去打网球了。',['下去','下来','起来','出去'],'Adj. + 下去 = a state continuing.');
+mc(18,'g18_zhe','我喜欢___音乐做功课。',['听着','听了','听过','听得'],'V₁ 着 O₁ V₂: background activity.');
+mc(18,'g18_zhe','打着电话开车很___。',['危险','方便','合适','干净'],'危险 = dangerous.');
+mc(18,'g18_zhe','Which sentence is correct?',['他平常躺着看电视。','他平常躺看着电视。','他平常着躺看电视。','他平常看电视躺着了。'],'着 follows the first verb (the posture).');
+mc(18,'g18_weile','___学好中文，我每天练习说中文。',['为了','因为','所以','虽然'],'为了 introduces a purpose.');
+mc(18,'g18_weile','___下雨，我们没去跑步。',['因为','为了','要是','另外'],'A cause, not a goal → 因为.');
+mc(18,'g18_weile','为了___迟到，她七点就出门了。',['不','没','别','还'],'Put 不 inside the goal to express avoiding something.');
+mc(18,'g18_weile','为了提高中文___，我每天看中文电视。',['水平','危险','信用卡','平常'],'提高水平 = raise one\u2019s level.');
+mc(18,'g18_bei','我的信用卡___人拿走了。',['被','把','对','跟'],'Receiver + 被 + agent + V + result.');
+mc(18,'g18_bei','Which is a complete, correct passive sentence?',['我的网球拍被弟弟压坏了。','我的网球拍被弟弟压。','我的网球拍被压弟弟坏了。','弟弟被我的网球拍压坏了。'],'Include a result after the verb; the receiver comes first.');
+mc(18,'g18_bei','我的书___弟弟拿走了。',['让','把','对','跟'],'让/叫 can be colloquial passive markers with an agent.');
+mc(18,'g18_bei','我的自行车叫___骑走了。',['人','被','把','着'],'叫 needs an agent; use 人 if unknown.');
+mc(18,'g18_bei','Which sentence focuses on what the brother did to the book?',['弟弟把我的书拿走了。','我的书被弟弟拿走了。','我的书让弟弟拿走了。','我的书叫弟弟拿走了。'],'把 keeps the doer as the topic; 被/让/叫 keep the book as the topic.');
+mc(18,'g18_bei','昨晚旁边宿舍的人开舞会，我___吵死了。',['被','把','让人','给我'],'被吵死了 = driven crazy by the noise.');
+mc(18,'g18_yuelaiyue','你平常吃得那么多，又不运动，当然___胖了。',['越来越','越越','更来更','越来越很'],'越来越 + Adj.; no 很.');
+mc(18,'g18_yue','这个周末我___人打篮球。',['约了','被','着','为了'],'约 + sb + V = make plans with someone to do something.');
+mc(18,'g18_yue','这个汉字很___写。',['难','难得','被','着'],'难 + V = hard to do.');
+mc(18,'g18_haishi','我看不懂美式足球，___看别的吧。',['还是','或者','还','也'],'还是……吧 suggests the alternative.');
+mc(18,'g18_words','他___很忙，没有时间运动。',['平常','马上','赶快','另外'],'平常 = usually.');
+od(18,'g18_freq','I play tennis three times a week.',['我','一个星期','打','三次','网球'],'。');
+od(18,'g18_duration','I run for an hour every day.',['我','每天','跑步','跑','一个小时'],'。');
+od(18,'g18_inactive','I haven\u2019t swum for two weeks.',['我','两个星期','没','游泳','了'],'。');
+od(18,'g18_xiaqu','I want to keep studying Chinese.',['我','想','把','中文','学下去'],'。');
+od(18,'g18_zhe','I like listening to music lying down.',['我','喜欢','躺着','听音乐'],'。');
+od(18,'g18_bei','My credit card was taken by someone.',['我的信用卡','被','人','拿走了'],'。');
+od(18,'g18_weile','To raise my Chinese level, I watch Chinese TV every day.',['为了','提高中文水平，','我','每天','看','中文电视'],'。');
+tr(18,'g18_freq','I exercise two or three times a week.','我一个星期运动两三次。');
+tr(18,'g18_inactive','I haven\u2019t played basketball for a month.','我一个月没打篮球了。');
+tr(18,'g18_zhe','Driving while talking on the phone is dangerous.','打着电话开车很危险。');
+tr(18,'g18_weile','In order to improve my Chinese, I listen to Chinese music every day.','为了提高中文水平，我每天听中文音乐。',['为了提高我的中文水平，我每天听中文音乐。']);
+tr(18,'g18_bei','My tennis racket was broken by my younger brother.','我的网球拍被弟弟压坏了。',['我的网球拍被弟弟弄坏了。','我的网球拍被我弟弟弄坏了。']);
+tr(18,'g18_yuelaiyue','He is getting fatter and fatter.','他越来越胖了。');
+
+// L19
+mc(19,'g19_words','我要给旅行社打电话___飞机票。',['订','办','打','靠'],'订 = book/reserve.');
+mc(19,'g19_words','去中国以前，得先___签证。',['办','订','约','靠'],'办签证 = apply for / process a visa.');
+mc(19,'g19_words','飞机快要起飞了，你___走吧！',['赶快','马马','差不多','平常'],'赶快 = hurry up and….');
+mc(19,'g19_words','我得___去教室上课。',['马上','上马','快马','马快'],'马上 = immediately.');
+mc(19,'g19_words','我打算十二月___去北京，月中回来。（early December）',['初','末','多','半'],'Month + 初 = beginning of the month.');
+mc(19,'g19_youde','我们的同学，___去暑期班学习，___去公司实习。',['有的 / 有的','有 / 有','有的 / 别的','一些 / 有的'],'有的……有的…… = some… others….');
+mc(19,'g19_yaoshi','听说北京的秋天特别漂亮，要是能秋天去北京___。',['就好了','就了','好了就','才好了'],'要是……就好了 = it would be great if.');
+mc(19,'g19_budeliao','现在的国际机票贵___。',['得不得了','很不得了','不得了得','得很不得了'],'Adj. + 得 + 不得了.');
+mc(19,'g19_budeliao','Which sentence is correct?',['跑了一个小时以后，我累得不得了。','跑了一个小时以后，我很累得不得了。','跑了一个小时以后，我非常累得不得了。','跑了一个小时以后，我累不得了。'],'Don\u2019t stack 很/非常; 得 is required.');
+mc(19,'g19_qpref','哪家航空公司的票便宜，我就买___的。',['哪家','那家','什么','这家'],'Repeat the same question word: 哪家…就…哪家.');
+mc(19,'g19_qpref','你吃什么，我就吃___。',['什么','那个','一样','哪儿'],'Same question word in both clauses.');
+mc(19,'g19_qpref','你想去哪儿，___去哪儿。',['就','才','都','也'],'就 links the choice to the matching action.');
+mc(19,'g19_qpref','你吃什么，我就吃什么。 means…',['I\u2019ll eat whatever you eat.','What are you eating? I\u2019m eating that.','What do you want me to eat?','I eat everything you eat every day.'],'The question words don\u2019t ask a question here.');
+mc(19,'g19_bi','这张机票比那张贵___，但是飞行时间短___。',['一点儿 / 得多','很 / 很','一点儿 / 很多','多 / 一点儿得'],'Small difference 一点儿; big difference 得多.');
+mc(19,'g19_bi','Which sentence is correct?',['我哥哥比我大五岁。','我哥哥比我很大。','我哥哥比我五岁大。','我哥哥大比我五岁。'],'Exact difference goes after the adjective; no 很.');
+mc(19,'g19_bi','我的房租比你的便宜___。',['五百块钱','很','非常','一点儿多'],'An exact amount follows the adjective.');
+mc(19,'g19_bi','火车票比飞机票便宜___。（much cheaper）',['多了','很多了','太多','很'],'Adj. + 多了 / 得多 = much more.');
+mc(19,'g19_dazhe','这件衬衫打八折 means…',['You pay 80% (20% off).','You pay 20% (80% off).','It\u2019s 8% off.','It costs 8 yuan.'],'The number is the share you pay.');
+mc(19,'g19_dazhe','原价八百块，打七五折，现在___。',['六百块','两百块','五百七十五块','七百五十块'],'800 × 0.75 = 600.');
+mc(19,'g19_dazhe','How do you say \u201c30% off\u201d?',['打七折','打三折','打三十折','打七十折'],'30% off = pay 70% → 七折.');
+mc(19,'g19_numbers','50,740 →',['五万零七百四十','五万七百四十','五千零七百四十','五万零七百零四十'],'One 零 for the gap at the thousands place.');
+mc(19,'g19_numbers','273,608 →',['二十七万三千六百零八','两千七百三十六万零八','二十七万三千六百八','二十七万零三千六百零八'],'27 万 + 3,608.');
+mc(19,'g19_numbers','一百万 =',['1,000,000','100,000','10,000,000','10,000'],'百万 = 100 × 10,000.');
+mc(19,'g19_numbers','十亿 =',['1,000,000,000','100,000,000','10,000,000','10,000,000,000'],'亿 = 100,000,000; 十亿 = one billion.');
+mc(19,'g19_na','你想坐___航空公司的飞机？',['哪家','哪个家','哪儿','什么个'],'家 is the measure word for businesses.');
+mc(19,'g19_na','你想买___机票？',['哪张','哪个张','哪儿','哪本'],'张 for tickets.');
+mc(19,'g19_words','我只去北京，不回来，所以要买一张___票。',['单程','往返','直飞','转机'],'One-way = 单程票.');
+mc(19,'g19_words','我不想转机，想___。',['直飞','靠窗户','打折','卖完'],'直飞 = fly direct.');
+mc(19,'g19_words','我喜欢看外面，请给我一个靠___的位子。',['窗户','走道','护照','签证'],'靠窗户 = by the window.');
+mc(19,'g19_words','我不吃肉，请给我订___。',['素餐','航班','往返票','签证'],'素餐 = vegetarian meal.');
+mc(19,'g19_words','六月初的票都卖___了。',['完','到','懂','下'],'卖完 = sold out.');
+od(19,'g19_qpref','I\u2019ll buy from whichever airline is cheapest.',['我','就','买','哪家的'],'哪家航空公司的票便宜，');
+od(19,'g19_bi','My older brother is five years older than me.',['我哥哥','比','我','大','五岁'],'。');
+od(19,'g19_dazhe','This shirt is 20% off.',['这件衬衫','打','八折'],'。');
+od(19,'g19_youde','Some classmates are taking summer classes; some are interning.',['有的','去暑期班学习，','有的','去公司实习'],'我们的同学，');
+od(19,'g19_yaoshi','It would be great if we could go to Beijing in the fall.',['要是','能','秋天','去北京','就好了'],'。');
+od(19,'g19_budeliao','International plane tickets are terribly expensive now.',['现在的','国际机票','贵得','不得了'],'。');
+tr(19,'g19_words','I\u2019d like a seat by the aisle.','我想要一个靠走道的位子。',['我要一个靠走道的位子。']);
+tr(19,'g19_qpref','Book whichever flight is cheapest.','哪个航班便宜，就订哪个。',['哪个航班便宜就订哪个。','哪个航班便宜，你就订哪个。']);
+tr(19,'g19_dazhe','This plane ticket is 25% off.','这张机票打七五折。');
+tr(19,'g19_yaoshi','If only I could go to China this summer!','要是今年暑假能去中国就好了。',['要是今年暑假我能去中国就好了。']);
+tr(19,'g19_bi','Train tickets are much cheaper than plane tickets.','火车票比飞机票便宜得多。',['火车票比飞机票便宜多了。']);
+tr(19,'g19_youde','Some students went traveling; others went to intern.','有的学生去旅行了，有的去实习了。',['有的学生去旅行，有的去实习。']);
+
+// Foundations
+mc(15,'g15','他跑___很快。',['得','的','地','了'],'得 introduces a complement after a verb.');
+mc(15,'g15','这是我___书。',['的','得','地','了'],'的 links a modifier to a noun.');
+mc(15,'g15','他高兴___说：“太好了！”',['地','的','得','着'],'地 links an adverbial to a following verb.');
+mc(15,'g15','我去___中国，那儿很好玩儿。',['过','着','得','起'],'过 marks a past experience.');
+mc(15,'g15','我是坐飞机来___。',['的','了','过','着'],'是……的 highlights how/when/where a past event happened.');
+mc(15,'g15','请你___门关上。',['把','被','对','给'],'把 + O + V + complement.');
+mc(15,'g15','我们先吃饭，___看电影。',['再','又','还','才'],'先……再…… = first… then….');
+mc(15,'g15','他昨天来了，今天___来了。',['又','再','还是','才'],'又 for a repetition that already happened.');
+mc(15,'g15','你喝茶___喝咖啡？',['还是','或者','和','跟'],'还是 in questions offering a choice.');
+mc(15,'g15','你可以坐公共汽车___坐地铁。',['或者','还是','和','跟'],'或者 in statements.');
+mc(15,'g15','除了中文___，我还学日文。',['以外','以后','以前','外边'],'除了……以外，还…….');
+mc(15,'g15','他___聪明___用功。',['又 / 又','也 / 也','还 / 还','都 / 都'],'又……又…… = both… and….');
+mc(15,'g15','虽然很贵，___我还是要买。',['但是','所以','因为','要是'],'虽然……但是…….');
+mc(15,'g15','我___吃饭，一边看电视。',['一边','一面儿','一起','一样'],'一边……一边…… = doing two things at once.');
+mc(15,'g15','他十点___起床，太晚了！',['才','就','都','再'],'才 = later than expected.');
+mc(15,'g15','我买了一___裤子和一___衬衫。',['条 / 件','件 / 条','双 / 张','张 / 双'],'条 for pants, 件 for shirts.');
+mc(15,'g15','他跟我___高。',['一样','同一','一起','差不多的'],'A 跟 B 一样 + Adj.');
+mc(15,'g15','我做___功课了，可以去玩儿了。',['完','懂','到','好看'],'Resultative 完 = finished.');
+
+/* Readings */
+const READINGS=[
+{id:'r1',L:16,title:'音乐会',text:['小林和小高在同一个学校学习，他们认识已经快一年了。小林对小高的印象很好，他觉得小高又聪明又用功。上个星期，小林想请小高去听音乐会，可是票很不好买，他费了很大的力气才买到两张。','听音乐会的那天，小高说：“我记得以前见过你，可是想不起来在哪儿见过了。”小林笑着说：“我们去年在同一个中文班上课！”音乐会以后，小林说中文歌他听不懂，小高说她都听得懂。'],
+en:'Xiao Lin and Xiao Gao study at the same school; they\u2019ve known each other for almost a year. Xiao Lin has a very good impression of Xiao Gao — he thinks she\u2019s smart and hardworking. Last week he wanted to invite her to a concert, but tickets were hard to get; only after a lot of effort did he manage to buy two. On the day of the concert, Xiao Gao said, \u201cI remember meeting you before, but I can\u2019t recall where.\u201d Xiao Lin laughed: \u201cWe were in the same Chinese class last year!\u201d Afterward, Xiao Lin said he couldn\u2019t understand the Chinese songs; Xiao Gao said she understood all of them.',
+qs:[['小林和小高认识多长时间了？',['快一年了','一年多了','快半年了','两年了'],'已经快一年了 = almost a year.'],
+['小林对小高的印象怎么样？',['很好，觉得她又聪明又用功','不太好，觉得她不用功','很好，觉得她很漂亮','文章里没说'],'他觉得小高又聪明又用功.'],
+['小林是怎么买到票的？',['费了很大的力气才买到的','很容易就买到了','小高帮他买的','他没买到票'],'费了很大的力气才买到两张.'],
+['小高想不起来什么？',['在哪儿见过小林','小林的名字','音乐会在哪儿','票多少钱'],'想不起来在哪儿见过了.'],
+['下面哪句话是对的？',['小高听得懂中文歌','小林听得懂中文歌','他们俩都听不懂中文歌','他们不在同一个学校'],'小高说她都听得懂.']]},
+{id:'r2',L:17,title:'公寓出租',text:['【出租】校外公寓，一房一厅，带家具：卧室里有一张床、一张书桌和一个书架；客厅里有一套沙发、一张饭桌和四把椅子。房租每月七百五十元，水电费差不多一百元。要多付一个月的房租当押金。不准养宠物。公寓附近有公共汽车站，走路去学校差不多二十分钟。','小王：我在学校宿舍住了两个学期了。宿舍太吵，连厨房都没有，所以我想搬出去。这套公寓对我很合适。房租有一点儿贵，可是不用坐公共汽车，走路就可以去学校，很方便。另外，我没有宠物。我打算明天给他们打电话。'],
+en:'[For rent] Off-campus apartment, one bedroom and one living room, furnished: the bedroom has a bed, a desk, and a bookshelf; the living room has a sofa set, a dining table, and four chairs. Rent is 750 a month; utilities about 100. One extra month\u2019s rent is due as a deposit. No pets. There\u2019s a bus stop nearby; it\u2019s about a 20-minute walk to school. — Xiao Wang: I\u2019ve lived in the school dorm for two semesters. It\u2019s too noisy and doesn\u2019t even have a kitchen, so I want to move out. This apartment suits me. The rent is a little high, but I wouldn\u2019t need to take the bus — I could walk to school, which is convenient. Also, I don\u2019t have a pet. I plan to call them tomorrow.',
+qs:[['客厅里有什么家具？',['沙发、饭桌和椅子','床和书桌','书架和沙发','什么家具都没有'],'客厅里有一套沙发、一张饭桌和四把椅子.'],
+['房租加水电费每个月差不多多少钱？',['八百五十元','七百五十元','一千元','一百元'],'750 + about 100 = about 850.'],
+['押金是多少钱？',['七百五十元','一百元','八百五十元','不用付押金'],'One month\u2019s rent: 750.'],
+['小王为什么想从宿舍搬出去？',['宿舍很吵，也没有厨房','宿舍房租太贵','宿舍不准养宠物','宿舍离学校太远'],'宿舍太吵，连厨房都没有.'],
+['小王现在还住在宿舍吗？',['还住，已经住了两个学期了','不住了，以前住过两个学期','他今天搬进公寓去了','文章里没说'],'住了两个学期了 (two 了) = still living there.'],
+['小王觉得这套公寓怎么样？',['有一点儿贵，可是很方便','太贵了，对他不合适','太远，不方便','不带家具，不合适'],'房租有一点儿贵，可是……很方便.']]},
+{id:'r3',L:18,title:'高文中的运动',text:['高文中平常很忙，没有时间运动，所以越来越胖了。他姐姐高小音一个星期跑三次步，每次跑四十分钟。姐姐对他说：“你已经两个月没运动了。这样胖下去，对身体很不好。”','文中说他对跑步没有兴趣，跑步太累了。他最喜欢躺着看电视。姐姐说：“为了你的身体，你还是跟我去打网球吧。”文中觉得网球太难学，美式足球他又看不懂。最后，他约了王朋明天下午打一个小时的篮球。可是第二天，他的篮球被同屋拿走了。'],
+en:'Gao Wenzhong is usually busy and has no time to exercise, so he keeps getting heavier. His sister Gao Xiaoyin runs three times a week, forty minutes each time. She told him, \u201cYou haven\u2019t exercised for two months. If you keep gaining weight like this, it\u2019s bad for your health.\u201d Wenzhong said he has no interest in running; it\u2019s too tiring. He likes watching TV lying down best. His sister said, \u201cFor your health, you\u2019d better come play tennis with me.\u201d Wenzhong thinks tennis is too hard to learn, and he can\u2019t understand American football. In the end he arranged to play basketball with Wang Peng for an hour tomorrow afternoon. But the next day, his basketball had been taken by his roommate.',
+qs:[['高小音一个星期跑几次步？',['三次','两次','四次','每天都跑'],'一个星期跑三次步.'],
+['文中多长时间没运动了？',['两个月','两个星期','四十分钟','一年'],'你已经两个月没运动了.'],
+['文中最喜欢做什么？',['躺着看电视','跑步','打网球','看美式足球'],'他最喜欢躺着看电视.'],
+['姐姐为什么让文中跟她去打网球？',['为了他的身体','因为网球很好学','因为她没时间跑步','因为王朋约了他们'],'为了你的身体.'],
+['文中约了王朋做什么？',['打一个小时的篮球','跑四十分钟的步','打网球','看美式足球'],'约了王朋明天下午打一个小时的篮球.'],
+['第二天怎么了？',['他的篮球被同屋拿走了','他把同屋的篮球拿走了','王朋没来','他跑步跑了一个小时'],'他的篮球被同屋拿走了 — the roommate took his ball.']]},
+{id:'r4',L:19,title:'订机票',text:['王朋打算暑假回北京看父母。他给旅行社打电话订飞机票。旅行社的人说，六月初的直飞航班都卖完了。六月十号有一个航班，要在东京转机，往返票一千二百块。直飞的票比转机的贵得多，要一千六百块。另外，东方航空公司的往返票原价一千五百块，现在打八折。','王朋说：“哪家航空公司的票便宜，我就买哪家的。”他订了一张往返票，要了一个靠走道的位子。因为他不吃肉，旅行社还给他订了素餐。可是，打完电话以后，王朋的护照找不到了。他得马上去办一个新的！'],
+en:'Wang Peng plans to go back to Beijing over summer vacation to see his parents. He called a travel agency to book a ticket. The agent said all the direct flights in early June were sold out. There\u2019s a flight on June 10 with a connection in Tokyo; a round-trip ticket is 1,200. Direct tickets are much more expensive than connecting ones: 1,600. Also, Eastern Airlines\u2019 round-trip ticket is originally 1,500, now 20% off. Wang Peng said, \u201cI\u2019ll buy from whichever airline is cheapest.\u201d He booked a round-trip ticket and asked for an aisle seat. Since he doesn\u2019t eat meat, the agency also ordered him a vegetarian meal. But after hanging up, Wang Peng couldn\u2019t find his passport. He has to go get a new one right away!',
+qs:[['王朋为什么不能六月初直飞北京？',['六月初的直飞票都卖完了','他没有护照','直飞太贵了','他六月初要实习'],'六月初的直飞航班都卖完了.'],
+['直飞的票比在东京转机的贵多少？',['四百块','三百块','一千二百块','两百块'],'1,600 − 1,200 = 400.'],
+['东方航空公司的票打折以后多少钱？',['一千二百块','一千五百块','三百块','八百块'],'1,500 × 0.8 = 1,200.'],
+['王朋要了什么样的位子？',['靠走道的','靠窗户的','中间的','文章里没说'],'要了一个靠走道的位子.'],
+['旅行社为什么给王朋订素餐？',['因为他不吃肉','因为素餐比较便宜','因为航空公司只有素餐','因为他想越来越瘦'],'因为他不吃肉.'],
+['王朋得马上做什么？',['去办一个新护照','去办签证','去旅行社买票','给父母打电话'],'护照找不到了 → 马上去办一个新的.']]},
+{id:'r5',L:19,title:'小白的暑假（综合）',text:['我在北京学中文学了一年多了，中文水平越来越高，现在中文电影我差不多都看得懂。我打算把中文学下去。','今年暑假，我的同学有的去旅行，有的回家，我想在北京的一家公司实习。为了办签证，我已经一个星期没好好儿睡觉了！另外，我还得从宿舍搬出去。新公寓的房租比宿舍便宜三百块，可是我的房间小得不得了，连书架都放不下。要是能找到一个大一点儿的房间就好了。'],
+en:'I\u2019ve been studying Chinese in Beijing for over a year; my level keeps rising, and now I can understand almost all Chinese movies. I plan to keep studying. This summer, some of my classmates are traveling and some are going home; I want to intern at a company in Beijing. To get my visa sorted out, I haven\u2019t slept properly for a week! Also, I have to move out of the dorm. The new apartment\u2019s rent is 300 cheaper than the dorm, but my room is incredibly small — it can\u2019t even fit a bookshelf. If only I could find a slightly bigger room.',
+qs:[['小白学中文学了多长时间了？',['一年多，现在还在学','一年，已经不学了','不到一年','两年多'],'学了一年多了 + 打算把中文学下去.'],
+['小白现在看中文电影怎么样？',['差不多都看得懂','都看不懂','一点儿都看不懂','文章里没说'],'差不多都看得懂.'],
+['小白暑假打算做什么？',['在北京的公司实习','去旅行','回家','上暑期班'],'我想在北京的一家公司实习.'],
+['小白为什么一个星期没好好儿睡觉了？',['为了办签证','因为宿舍太吵','因为在实习','因为要搬家'],'为了办签证.'],
+['新公寓怎么样？',['比宿舍便宜三百块，可是房间很小','比宿舍贵三百块','房间很大，放得下书架','跟宿舍一样贵'],'便宜三百块 / 小得不得了.'],
+['“要是能找到一个大一点儿的房间就好了” 是什么意思？',['她希望能找到大一点儿的房间','她已经找到大房间了','她觉得房间太大了','她不想搬家'],'要是……就好了 expresses a wish.']]}
+];
+READINGS.forEach(r=>{r.qs=r.qs.map((q,i)=>({id:r.id+'q'+i,kind:'mc',L:r.L,g:'reading',prompt:q[0],opts:q[1],ans:q[1][0],ex:q[2],ctx:'Reading: '+r.title}))});
+
+const HW=[
+{h:'听懂',p:'tīngdǒng',e:'to understand (by listening)'},
+{h:'房间',p:'fángjiān',e:'room'},
+{h:'家具',p:'jiājù',e:'furniture'},
+{h:'书桌',p:'shūzhuō',e:'desk'},
+{h:'搬',p:'bān',e:'to move'},
+{h:'进去',p:'jìnqu',e:'to go in (进…去)'},
+{h:'有一点儿',p:'yǒu yìdiǎnr',e:'a little (undesirable)'},
+{h:'慢',p:'màn',e:'slow'},
+{h:'沙发',p:'shāfā',e:'sofa'},
+{h:'坐不下',p:'zuò bu xià',e:'can\u2019t seat (enough people)'},
+{h:'放得下',p:'fàng de xià',e:'can fit (things)'}
+];
+const HWS=[
+['I can\u2019t understand what the teacher says.','我听不懂老师说的话。'],
+['This room is a little small; it can\u2019t fit a sofa.','这个房间有一点儿小，放不下沙发。'],
+['Please move the desk into the bedroom.','请把书桌搬进卧室去。'],
+['This apartment comes with furniture.','这套公寓带家具。'],
+['You speak a little fast; could you speak a bit more slowly?','你说得有一点儿快，能不能慢一点儿？'],
+['This sofa can seat three people.','这个沙发坐得下三个人。'],
+['My room is so small it can\u2019t even fit a desk.','我的房间很小，连书桌都放不下。'],
+['I want to move out of the dorm.','我想从宿舍搬出去。'],
+['Did you understand (what you heard)?','你听懂了吗？'],
+['The furniture in this room is very new.','这个房间的家具很新。'],
+['The teacher walked into the room.','老师走进房间来了。'],
+['My desk can\u2019t fit two computers.','我的书桌放不下两个电脑。']
+];
+
+/* ================= UTIL ================= */
+const $=(s,el=document)=>el.querySelector(s);
+const el=html=>{const t=document.createElement('template');t.innerHTML=html.trim();return t.content.firstElementChild};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const pick=(a,n)=>shuffle(a).slice(0,n);
+const norm=s=>String(s).replace(/[\s，。！？、,.!?“”"'：:；;（）()…]/g,'');
+const hasHan=s=>/[\u4e00-\u9fff]/.test(s);
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let STATS=store.get('ic19-stats',{a:0,c:0,byL:{}});
+let MISSES=store.get('ic19-miss',[]);
+let KNOWN=new Set(store.get('ic19-known',[]));
+function record(q,ok){
+  STATS.a++; if(ok) STATS.c++;
+  const k=q.L||'x'; STATS.byL[k]=STATS.byL[k]||{a:0,c:0}; STATS.byL[k].a++; if(ok) STATS.byL[k].c++;
+  store.set('ic19-stats',STATS);
+  const i=MISSES.findIndex(m=>m.id===q.id);
+  if(!ok && i<0) MISSES.push(q);
+  if(ok && i>=0) MISSES.splice(i,1);
+  store.set('ic19-miss',MISSES); renderNav();
+}
+const blankify=s=>esc(s).replace(/___/g,'<span class="blank"></span>');
+
+/* ================= NUMBERS ================= */
+const DG='零一二三四五六七八九';
+function grp(n,leading){
+  const ds=[Math.floor(n/1000),Math.floor(n/100)%10,Math.floor(n/10)%10,n%10],U=['千','百','十',''];
+  let s='',zero=false,started=false;
+  for(let i=0;i<4;i++){const d=ds[i];
+    if(d===0){if(started)zero=true;continue}
+    if(zero){s+='零';zero=false}
+    let c=DG[d]; if(i===0&&d===2)c='两'; if(i===2&&d===1&&!started&&leading)c='';
+    s+=c+U[i];started=true}
+  return s}
+function numToZh(n){
+  if(n===0)return'零';
+  const g=[Math.floor(n/1e8),Math.floor(n/1e4)%1e4,n%1e4],U=['亿','万',''];
+  let s='',started=false,pz=false;
+  for(let i=0;i<3;i++){const v=g[i];
+    if(v===0){if(started)pz=true;continue}
+    if(started&&(pz||v<1000))s+='零';
+    let t=grp(v,!started); if(v===2&&i<2)t='两';
+    s+=t+U[i];started=true;pz=false}
+  return s}
+function randNum(){const len=4+Math.floor(Math.random()*7);let s=''+(1+Math.floor(Math.random()*9));for(let i=1;i<len;i++)s+=Math.random()<.42?'0':Math.floor(Math.random()*10);return +s}
+const fmt=n=>n.toLocaleString('en-US');
+let genId=0;
+function numQ(){
+  const n=randNum();
+  if(Math.random()<.55){
+    const right=numToZh(n);const opts=new Set([right]);
+    const alts=[n*10,Math.floor(n/10),n+Math.pow(10,Math.floor(Math.random()*String(n).length))];
+    const noZero=right.replace(/零/g,''); if(noZero!==right)opts.add(noZero);
+    for(const a of alts){if(opts.size>=4)break;if(a>0&&a!==n)opts.add(numToZh(a))}
+    while(opts.size<4)opts.add(numToZh(randNum()));
+    return{id:'n'+(genId++)+'_'+n,kind:'mc',L:19,g:'g19_numbers',prompt:fmt(n)+' =',opts:[...opts].slice(0,4),ans:right,ex:'Group by four digits from the right: '+fmt(n)+' → '+right}
+  }
+  return{id:'n'+(genId++)+'_'+n,kind:'type',L:19,g:'g19_numbers',prompt:numToZh(n)+' =',ans:String(n),ctx:'Type the number in digits (commas optional).',ex:numToZh(n)+' = '+fmt(n)}
+}
+const ZHE=[['九',.9],['八五',.85],['八',.8],['七五',.75],['七',.7],['六',.6],['五',.5]];
+const PRICES=[100,200,300,400,500,600,800,1000,1200,1500,2000];
+function zheQ(){
+  const [z,r]=ZHE[Math.floor(Math.random()*ZHE.length)];const P=PRICES[Math.floor(Math.random()*PRICES.length)];
+  const t=Math.random();
+  if(t<.5){
+    const right=Math.round(P*r);const opts=new Set([right,Math.round(P*(1-r))]);
+    [Math.round(P*(r-.1)),Math.round(P*(r+.05)),Math.round(P*r/2),P-Math.round(r*10)].forEach(x=>{if(opts.size<4&&x>0)opts.add(x)});
+    const o=[...opts].slice(0,4).map(x=>numToZh(x)+'块（'+fmt(x)+'）');
+    return{id:'z'+(genId++),kind:'mc',L:19,g:'g19_dazhe',prompt:'原价'+numToZh(P)+'块，打'+z+'折。现在多少钱？',opts:o,ans:o[0],ex:'打'+z+'折 = pay '+Math.round(r*100)+'%: '+fmt(P)+' × '+r+' = '+fmt(right)+'.'}
+  }
+  if(t<.75){
+    const pay=Math.round(r*100),off=100-pay;const o=['pay '+pay+'% ('+off+'% off)','pay '+off+'% ('+pay+'% off)',z+'% off','pay '+(pay/10)+'%'];
+    return{id:'z'+(genId++),kind:'mc',L:19,g:'g19_dazhe',prompt:'打'+z+'折 means…',opts:o,ans:o[0],ex:'The number tells you the share you pay.'}
+  }
+  const pay=Math.round(r*100),off=100-pay;
+  const wrongs=new Set();ZHE.forEach(([zz,rr])=>{if(zz!==z)wrongs.add('打'+zz+'折')});
+  const o=['打'+z+'折',...pick([...wrongs],2),'打'+numToZh(off).replace(/^一十/,'十')+'折'];
+  const uniq=[...new Set(o)].slice(0,4);
+  return{id:'z'+(genId++),kind:'mc',L:19,g:'g19_dazhe',prompt:'How do you say \u201c'+off+'% off\u201d?',opts:uniq,ans:uniq[0],ex:off+'% off = you pay '+pay+'% → 打'+z+'折.'}
+}
+
+/* vocab questions */
+function vocabQ(v,mode,pool){
+  const others=pick(pool.filter(x=>x.id!==v.id&&x.e!==v.e),3);
+  if(mode==='h2e'){const o=[v.e,...others.map(x=>x.e)];return{id:'vq-h2e-'+v.id,kind:'mc',L:v.L,g:'vocab',prompt:v.h,opts:o,ans:v.e,ex:v.h+' ('+v.p+') = '+v.e,ctx:'What does this mean?',zhPrompt:true,engOpts:true}}
+  if(mode==='e2h'){const o=[v.h,...others.map(x=>x.h)];return{id:'vq-e2h-'+v.id,kind:'mc',L:v.L,g:'vocab',prompt:v.e,opts:o,ans:v.h,ex:v.e+' = '+v.h+' ('+v.p+')',ctx:'Choose the Chinese.'}}
+  const o=[v.p,...others.map(x=>x.p)];return{id:'vq-h2p-'+v.id,kind:'mc',L:v.L,g:'vocab',prompt:v.h,opts:o,ans:v.p,ex:v.h+' = '+v.p+' — '+v.e,ctx:'Choose the pinyin.',zhPrompt:true,engOpts:true}
+}
+
+/* ================= QUIZ RUNNER ================= */
+function runQuiz(host,items,opt={}){
+  let i=0,score=0;const results=[];
+  host.innerHTML='';
+  const wrap=el('<div></div>');host.appendChild(wrap);
+  if(opt.header) host.insertBefore(opt.header,wrap);
+  function next(){ if(i>=items.length) return finish(); show(items[i]) }
+  function show(q){
+    wrap.innerHTML='';
+    const box=el(`<div class="qwrap" role="group" aria-label="Question ${i+1} of ${items.length}"></div>`);
+    box.appendChild(el(`<div class="qmeta"><span>${opt.title?esc(opt.title)+' · ':''}${i+1} / ${items.length}</span><span>${q.L?(LNAME[q.L]):''}</span></div>`));
+    box.appendChild(el(`<div class="progress"><i style="width:${(i/items.length)*100}%"></i></div>`));
+    wrap.appendChild(box);
+    const done=(ok,html,auto)=>{
+      results.push({q,ok}); if(ok)score++; record(q,ok);
+      const fb=el(`<div class="feedback ${ok?'ok':'bad'}" aria-live="polite"><b>${ok?'Correct.':'Not quite.'}</b>${html||''}</div>`);
+      box.appendChild(fb);
+      const nb=el(`<div class="qnav"><button class="btn">${i+1<items.length?'Next question':'See results'}</button></div>`);
+      box.appendChild(nb);const b=$('button',nb);b.onclick=()=>{i++;next()};b.focus({preventScroll:true});
+    };
+    if(q.ctx) box.appendChild(el(`<div class="qctx">${esc(q.ctx)}</div>`));
+    if(q.kind==='mc'){
+      const zh=hasHan(q.prompt);
+      box.appendChild(el(`<div class="qprompt ${zh?'zh':''}" ${q.zhPrompt?'style="font-size:34px"':''}>${blankify(q.prompt)}</div>`));
+      const opts=el('<div class="opts"></div>');box.appendChild(opts);
+      const order=shuffle(q.opts);
+      order.forEach((o,k)=>{
+        const b=el(`<button class="opt"><span class="k">${k+1}</span><span class="${hasHan(o)?'v':''}">${esc(o)}</span></button>`);
+        b.onclick=()=>{
+          if(box.dataset.done)return;box.dataset.done=1;
+          const ok=o===q.ans;
+          [...opts.children].forEach((c,j)=>{c.disabled=true;if(order[j]===q.ans)c.classList.add('ok')});
+          if(!ok)b.classList.add('bad');
+          done(ok,`<span>${esc(q.ex||'')}</span>`);
+        };
+        opts.appendChild(b);
+      });
+    } else if(q.kind==='type'){
+      box.appendChild(el(`<div class="qprompt zh">${esc(q.prompt)}</div>`));
+      const inp=el('<input type="text" inputmode="numeric" autocomplete="off" aria-label="Your answer" style="font-family:var(--ui)">');box.appendChild(inp);
+      const nav=el('<div class="qnav"><button class="btn">Check</button></div>');box.appendChild(nav);
+      const chk=()=>{if(box.dataset.done)return;box.dataset.done=1;nav.remove();inp.disabled=true;const ok=inp.value.replace(/[,\s]/g,'')===q.ans;done(ok,`<span>${esc(q.ex)}</span>`)};
+      $('button',nav).onclick=chk;inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();chk()}};setTimeout(()=>inp.focus(),30);
+    } else if(q.kind==='order'){
+      box.appendChild(el(`<div class="qprompt">${esc(q.en)}</div>`));
+      box.appendChild(el(`<div class="qctx">Tap the pieces in order to build the sentence.</div>`));
+      const pre=q.pre&&q.pre!=='。'?q.pre:'';const post=q.pre==='。'?'。':(q.pre?'。':'');
+      const line=el(`<div class="slots"></div>`);
+      const bank=el('<div class="bank"></div>');
+      if(pre) line.appendChild(el(`<span class="pre">${esc(pre)}</span>`));
+      box.appendChild(line);box.appendChild(bank);
+      let chosen=[];
+      let tiles=shuffle(q.chunks.map((c,k)=>({c,k})));
+      if(tiles.map(t=>t.c).join('')===q.chunks.join('')&&tiles.length>1) tiles=tiles.reverse();
+      const draw=()=>{
+        [...line.querySelectorAll('.tile')].forEach(t=>t.remove());
+        chosen.forEach((t,idx)=>{const b=el(`<button class="tile">${esc(t.c)}</button>`);b.onclick=()=>{if(box.dataset.done)return;chosen.splice(idx,1);draw()};line.appendChild(b)});
+        bank.innerHTML='';
+        tiles.forEach(t=>{const used=chosen.includes(t);const b=el(`<button class="tile ${used?'used':''}" ${used?'tabindex="-1" aria-hidden="true"':''}>${esc(t.c)}</button>`);b.onclick=()=>{if(box.dataset.done||used)return;chosen.push(t);draw()};bank.appendChild(b)});
+        cb.disabled=chosen.length!==tiles.length;
+      };
+      const nav=el('<div class="qnav"><button class="btn ghost">Reset</button><button class="btn">Check</button></div>');box.appendChild(nav);
+      const [rb,cb]=nav.querySelectorAll('button');
+      rb.onclick=()=>{chosen=[];draw()};
+      cb.onclick=()=>{
+        if(box.dataset.done)return;box.dataset.done=1;nav.remove();
+        const got=norm(chosen.map(t=>t.c).join(''));const want=[q.chunks,...q.alts].map(a=>norm(Array.isArray(a)?a.join(''):a));
+        const ok=want.includes(got);line.classList.add(ok?'ok':'bad');bank.remove();
+        done(ok,`<span class="zh">${esc(pre+q.chunks.join('')+post)}</span>`);
+      };
+      draw();
+    } else if(q.kind==='trans'){
+      box.appendChild(el(`<div class="qprompt">${esc(q.en)}</div>`));
+      box.appendChild(el(`<div class="qctx">Translate into Chinese characters. Exact matches are graded automatically; otherwise compare with the model answer and grade yourself honestly.</div>`));
+      const ta=el('<textarea aria-label="Your translation" lang="zh"></textarea>');box.appendChild(ta);
+      const nav=el('<div class="qnav"><button class="btn ghost">Show answer</button><button class="btn">Check</button></div>');box.appendChild(nav);
+      const [sb,cb]=nav.querySelectorAll('button');
+      const reveal=()=>{
+        if(box.dataset.done)return;box.dataset.done=1;nav.remove();ta.disabled=true;
+        const got=norm(ta.value);const ok=got&&[q.model,...q.alts].some(m=>norm(m)===got);
+        if(ok) return done(true,`<span class="zh">${esc(q.model)}</span>`);
+        const m=el(`<div class="feedback" style="background:var(--gridbg)"><b>Model answer</b><span class="zh">${esc(q.model)}</span>${q.alts.length?`<div class="small muted" style="margin-top:4px">Also fine: <span class="hz">${q.alts.map(esc).join('　')}</span></div>`:''}<div class="row" style="margin-top:12px"><button class="btn">I had it right</button><button class="btn ghost">I missed it</button></div></div>`);
+        box.appendChild(m);const [y,n]=m.querySelectorAll('button');
+        y.onclick=()=>{m.querySelector('.row').remove();done(true,'')};n.onclick=()=>{m.querySelector('.row').remove();done(false,'')};
+      };
+      sb.onclick=reveal;cb.onclick=reveal;setTimeout(()=>ta.focus(),30);
+    }
+  }
+  function finish(){
+    wrap.innerHTML='';
+    const pct=items.length?Math.round(score/items.length*100):0;
+    const byL={};results.forEach(r=>{const k=r.q.L;byL[k]=byL[k]||{a:0,c:0};byL[k].a++;if(r.ok)byL[k].c++});
+    const box=el(`<div class="qwrap"><h2 style="margin-top:0">${score} / ${items.length} correct · ${pct}%</h2>
+      <div>${Object.keys(byL).sort().map(k=>`<div class="bar"><span class="lbl">${LNAME[k]}</span><span class="track"><i style="width:${byL[k].c/byL[k].a*100}%"></i></span><span class="val">${byL[k].c}/${byL[k].a}</span></div>`).join('')}</div>
+      <div class="row" style="margin:16px 0 4px"><button class="btn" data-a="again">Try another set</button>${results.some(r=>!r.ok)?'<button class="btn ghost" data-a="miss">Retry the ones I missed</button>':''}</div></div>`);
+    const missed=results.filter(r=>!r.ok);
+    if(missed.length){
+      box.appendChild(el('<h3 style="margin-top:20px">Review your misses</h3>'));
+      const ul=el('<ul class="summary-list"></ul>');
+      missed.forEach(r=>ul.appendChild(el(`<li>${qPreview(r.q)}</li>`)));box.appendChild(ul);
+    }
+    wrap.appendChild(box);
+    box.querySelector('[data-a="again"]').onclick=()=>opt.again?opt.again():runQuiz(host,shuffle(items),opt);
+    const mb=box.querySelector('[data-a="miss"]');if(mb)mb.onclick=()=>runQuiz(host,shuffle(missed.map(r=>r.q)),{...opt,title:'Missed'});
+    host.scrollIntoView({block:'start',behavior:'smooth'});
+  }
+  next();
+}
+function qPreview(q){
+  if(q.kind==='mc'||q.kind==='type') return `<div class="${hasHan(q.prompt)?'zh':''}">${blankify(q.prompt)}</div><div class="small">Answer: <span class="${hasHan(q.ans)?'hz':''}">${esc(q.kind==='type'?fmt(+q.ans):q.ans)}</span>${q.ex?' — '+esc(q.ex):''}</div>`;
+  if(q.kind==='order') return `<div>${esc(q.en)}</div><div class="zh">${esc((q.pre&&q.pre!=='。'?q.pre:'')+q.chunks.join(''))}</div>`;
+  return `<div>${esc(q.en)}</div><div class="zh">${esc(q.model)}</div>`;
+}
+
+/* ================= VIEWS ================= */
+const NAV=[['home','总览','Overview'],['vocab','词汇','Vocabulary'],['grammar','语法','Grammar'],['practice','练习','Practice'],['reading','阅读','Reading'],['numbers','数字','Numbers & discounts'],['writing','写字','Handwriting'],['exam','考试','Mock exam'],['mistakes','错题','Mistakes']];
+let VIEW='home';
+function renderNav(){
+  const n=$('#nav');
+  n.innerHTML=`<div class="brand" aria-hidden="true"><span class="cells"><span class="cell">复</span><span class="cell">习</span></span></div>`;
+  NAV.forEach(([k,zh,en])=>{
+    const b=el(`<button aria-current="${VIEW===k}"><span class="zh">${zh}</span><span>${en}</span>${k==='mistakes'&&MISSES.length?`<span class="count">${MISSES.length}</span>`:''}</button>`);
+    b.onclick=()=>go(k);n.appendChild(b)});
+  const t=el(`<button class="theme-btn"><span class="zh">${document.documentElement.dataset.theme==='dark'?'日':'夜'}</span><span>Theme</span></button>`);
+  t.onclick=()=>{const d=document.documentElement;const cur=d.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');d.dataset.theme=cur==='dark'?'light':'dark';store.set('ic19-theme',d.dataset.theme);renderNav()};
+  n.appendChild(t);
+}
+function go(k,arg){VIEW=k;renderNav();const m=$('#main');m.innerHTML='';VIEWS[k](m,arg);window.scrollTo(0,0)}
+
+const VIEWS={
+home(m){
+  const acc=STATS.a?Math.round(STATS.c/STATS.a*100)+'%':'—';
+  m.innerHTML=`<div class="hero" aria-label="第十六到十九课">${'十六至十九课'.split('').map(c=>`<span class="cell">${c}</span>`).join('')}</div>
+  <h1>Integrated Chinese 1, Lessons 16–19</h1>
+  <p class="lead">Everything from your study guides: core vocabulary, every grammar point with drills, reading comprehension, number and discount practice, handwriting for the ★ words, and a full mock exam. Progress is saved in this browser.</p>
+  <div class="panel"><div class="statline">
+    <div class="stat"><b>${STATS.a}</b><span>questions answered</span></div>
+    <div class="stat"><b>${acc}</b><span>accuracy</span></div>
+    <div class="stat"><b>${MISSES.length}</b><span>in your mistake list</span></div>
+    <div class="stat"><b>${KNOWN.size}/${VOCAB.length}</b><span>flashcards known</span></div>
+  </div><div class="row" style="margin-top:14px"><button class="btn" id="hx">Take the mock exam</button><button class="btn ghost" id="hp">Quick practice set</button></div></div>
+  <h2>By lesson</h2><div class="lessons" id="ls"></div>
+  <h2>Suggested path</h2>
+  <p class="muted" style="max-width:64ch">Skim a lesson\u2019s grammar cards, drill each point, then run the flashcards for that lesson. Do the readings once you\u2019ve covered all four lessons, and save the mock exam for last. Retry your mistake list until it\u2019s empty.</p>`;
+  const ls=$('#ls',m);
+  [16,17,18,19,15].forEach(L=>{
+    const nv=VOCAB.filter(v=>v.L===L).length,ng=GRAMMAR.filter(g=>g.L===L).length,nq=Q.filter(q=>q.L===L).length;
+    const s=STATS.byL[L];
+    const b=el(`<button class="lesson"><div class="t">${LNAME[L]}</div><div>${LEN[L]}</div><div class="s">${nv?nv+' words · ':''}${ng} grammar ${ng===1?'card':'cards'} · ${nq} questions${s?` · ${Math.round(s.c/s.a*100)}% so far`:''}</div></button>`);
+    b.onclick=()=>go('grammar',L);ls.appendChild(b)});
+  $('#hx',m).onclick=()=>go('exam');
+  $('#hp',m).onclick=()=>{go('practice');setTimeout(()=>$('#pstart')&&$('#pstart').click(),0)};
+},
+
+vocab(m,arg){
+  let L=arg||'all',starOnly=false,mode='cards',dir='zh',hideKnown=false,deck=[],idx=0;
+  m.innerHTML=`<h1>词汇 Vocabulary</h1><p class="lead">${VOCAB.length} core words from Lessons 16–19. <span class="badge star">★</span> marks words you must be able to handwrite for Part VI.</p>
+  <div class="row" id="vl" style="margin-bottom:10px"></div>
+  <div class="row" id="vm" style="margin-bottom:18px"></div><div id="vbody"></div>`;
+  const vl=$('#vl',m),vm=$('#vm',m),body=$('#vbody',m);
+  const chips=()=>{
+    vl.innerHTML='';
+    [['all','All'],[16,'L16'],[17,'L17'],[18,'L18'],[19,'L19']].forEach(([k,t])=>{const b=el(`<button class="chip" aria-pressed="${L==k}">${t}</button>`);b.onclick=()=>{L=k;chips();build()};vl.appendChild(b)});
+    const s=el(`<button class="chip" aria-pressed="${starOnly}">★ only</button>`);s.onclick=()=>{starOnly=!starOnly;chips();build()};vl.appendChild(s);
+    vm.innerHTML='';
+    [['cards','Flashcards'],['quiz','Quiz me'],['list','Word list']].forEach(([k,t])=>{const b=el(`<button class="chip" aria-pressed="${mode===k}">${t}</button>`);b.onclick=()=>{mode=k;chips();build()};vm.appendChild(b)});
+  };
+  const pool=()=>VOCAB.filter(v=>(L==='all'||v.L==L)&&(!starOnly||v.star===1));
+  function build(){
+    body.innerHTML='';const p=pool();
+    if(!p.length){body.innerHTML='<div class="empty">No ★ words in this lesson. Choose L16 or L17, or turn off “★ only”.</div>';return}
+    if(mode==='list'){
+      const t=el('<table class="vlist"></table>');
+      p.forEach(v=>t.appendChild(el(`<tr><td class="h">${esc(v.h)} ${v.star===1?'<span class="badge star">★</span>':v.star===2?'<span class="badge">☆</span>':''}</td><td class="p">${esc(v.p)}</td><td>${esc(v.e)}</td><td class="muted small">L${v.L}</td></tr>`)));
+      body.appendChild(t);return}
+    if(mode==='quiz'){
+      const setup=el(`<div class="panel"><h3>Quiz type</h3><div class="row" style="margin:10px 0 14px">
+        <button class="chip" data-m="h2e" aria-pressed="true">Chinese → English</button><button class="chip" data-m="e2h" aria-pressed="false">English → Chinese</button><button class="chip" data-m="h2p" aria-pressed="false">Chinese → pinyin</button><button class="chip" data-m="mix" aria-pressed="false">Mixed</button></div>
+        <button class="btn">Start ${Math.min(20,p.length)} questions</button></div>`);
+      let qm='h2e';setup.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{qm=b.dataset.m;setup.querySelectorAll('[data-m]').forEach(x=>x.setAttribute('aria-pressed',x===b))});
+      $('.btn',setup).onclick=()=>{const big=VOCAB.filter(v=>L==='all'||v.L==L);const mk=()=>pick(p,20).map(v=>vocabQ(v,qm==='mix'?['h2e','e2h','h2p'][Math.floor(Math.random()*3)]:qm,big.length>=4?big:VOCAB));runQuiz(body,mk(),{title:'Vocabulary',again:()=>runQuiz(body,mk(),{title:'Vocabulary'})})};
+      body.appendChild(setup);return}
+    deck=shuffle(p.filter(v=>!hideKnown||!KNOWN.has(v.id)));idx=0;card();
+  }
+  function card(){
+    body.innerHTML='';
+    const ctrl=el(`<div class="row" style="justify-content:space-between"><div class="row"><button class="chip" data-d aria-pressed="${dir==='en'}">English first</button><button class="chip" data-k aria-pressed="${hideKnown}">Hide known</button></div><span class="muted small">${deck.length?idx+1:0} / ${deck.length}</span></div>`);
+    body.appendChild(ctrl);
+    $('[data-d]',ctrl).onclick=()=>{dir=dir==='zh'?'en':'zh';card()};
+    $('[data-k]',ctrl).onclick=()=>{hideKnown=!hideKnown;build()};
+    if(!deck.length){body.appendChild(el('<div class="empty" style="margin-top:12px">You\u2019ve marked every card here as known. Turn off “Hide known” to review them again.</div>'));return}
+    if(idx>=deck.length){body.appendChild(el(`<div class="empty" style="margin-top:12px">Deck finished. ${deck.filter(v=>KNOWN.has(v.id)).length} of ${deck.length} marked known.<div class="row" style="justify-content:center;margin-top:12px"><button class="btn">Shuffle and go again</button></div></div>`));$('.btn',body).onclick=build;return}
+    const v=deck[idx];
+    const front=dir==='zh'?`<div class="big">${esc(v.h)}</div>`:`<div class="en" style="font-size:26px;color:var(--ink)">${esc(v.e)}</div>`;
+    const back=`<div class="big">${esc(v.h)}</div><div class="py">${esc(v.p)}</div><div class="en">${esc(v.e)}</div>`;
+    const f=el(`<div class="fc"><div class="fc-in" tabindex="0" role="button" aria-label="Flip card"><div class="fc-face">${front}<div style="margin-top:14px"><span class="badge">${LNAME[v.L]}</span> ${v.star===1?'<span class="badge star">★ handwrite</span>':''}</div><div class="muted small" style="margin-top:12px">Tap or press space to flip</div></div><div class="fc-face fc-back">${back}</div></div></div>`);
+    body.appendChild(f);const inner=$('.fc-in',f);
+    const flip=()=>f.classList.toggle('flip');inner.onclick=flip;inner.onkeydown=e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();flip()}};
+    const btns=el(`<div class="row" style="justify-content:center"><button class="btn ghost" data-a="0">Still learning</button><button class="btn" data-a="1">I know it</button></div>`);
+    body.appendChild(btns);
+    btns.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(b.dataset.a==='1')KNOWN.add(v.id);else KNOWN.delete(v.id);store.set('ic19-known',[...KNOWN]);idx++;card()});
+    inner.focus({preventScroll:true});
+  }
+  chips();build();
+},
+
+grammar(m,arg){
+  let L=arg||16;
+  m.innerHTML=`<h1>语法 Grammar</h1><p class="lead">Every structure from your study guides, with examples and common errors. Open a card, then drill that point.</p><div class="gtabs" id="gt"></div><div id="gb"></div>`;
+  const gt=$('#gt',m),gb=$('#gb',m);
+  function draw(){
+    gt.innerHTML='';
+    [16,17,18,19,15].forEach(k=>{const b=el(`<button class="chip" aria-pressed="${L===k}">${k===15?'Foundations':'L'+k}</button>`);b.onclick=()=>{L=k;draw()};gt.appendChild(b)});
+    gb.innerHTML='';
+    GRAMMAR.filter(g=>g.L===L).forEach((g,gi)=>{
+      const qs=Q.filter(q=>q.g===g.id);
+      const d=el(`<details class="gcard" ${gi===0?'open':''}><summary><span class="gt">${esc(g.t)}</span><span class="ge">${esc(g.e)}</span></summary><div class="gbody">
+        <div class="struct">${esc(g.s)}</div>
+        <p>${esc(g.n)}</p>${g.x||''}
+        ${g.ex.map(([z,e])=>`<div class="ex"><span class="zh">${esc(z)}</span><span class="en">${esc(e)}</span></div>`).join('')}
+        ${g.pit?`<div class="pit">${g.pit.map(([y,n])=>`<span><span class="y">✓ ${esc(y)}</span>　<span class="n">${esc(n)}</span></span>`).join('')}</div>`:''}
+        ${qs.length?`<div class="row" style="margin-top:12px"><button class="btn ghost">Drill this point (${qs.length})</button></div>`:''}
+        <div class="drill"></div></div></details>`);
+      if(qs.length){$('.btn',d).onclick=()=>{const h=$('.drill',d);h.style.marginTop='14px';runQuiz(h,shuffle(qs),{title:g.t})}}
+      gb.appendChild(d)});
+    const all=Q.filter(q=>q.L===L);
+    const b=el(`<div class="row" style="margin-top:18px"><button class="btn">Drill all of ${L===15?'Foundations':'Lesson '+L} (${all.length})</button></div>`);
+    $('button',b).onclick=()=>{const h=el('<div style="margin-top:16px"></div>');gb.appendChild(h);runQuiz(h,shuffle(all),{title:L===15?'Foundations':'Lesson '+L});h.scrollIntoView({behavior:'smooth'})};
+    gb.appendChild(b);
+  }
+  draw();
+},
+
+practice(m){
+  const sel={L:new Set([16,17,18,19]),k:new Set(['mc','order','trans']),n:15};
+  m.innerHTML=`<h1>练习 Practice</h1><p class="lead">Build a custom set from the question bank. Multiple choice covers fill-in-the-blank and error spotting; sentence building tests word order; translation mirrors the written part of the exam.</p>
+  <div class="panel"><h3>Lessons</h3><div class="row" id="pl" style="margin:8px 0 16px"></div><h3>Question types</h3><div class="row" id="pk" style="margin:8px 0 16px"></div><h3>How many</h3><div class="row" id="pn" style="margin:8px 0 16px"></div><button class="btn" id="pstart">Start</button> <span class="muted small" id="pc"></span></div><div id="pq"></div>`;
+  const avail=()=>Q.filter(q=>sel.L.has(q.L)&&sel.k.has(q.kind));
+  const pl=$('#pl',m),pk=$('#pk',m),pn=$('#pn',m),pc=$('#pc',m);
+  function draw(){
+    pl.innerHTML='';[[16,'L16'],[17,'L17'],[18,'L18'],[19,'L19'],[15,'Foundations']].forEach(([k,t])=>{const b=el(`<button class="chip" aria-pressed="${sel.L.has(k)}">${t}</button>`);b.onclick=()=>{sel.L.has(k)?sel.L.delete(k):sel.L.add(k);draw()};pl.appendChild(b)});
+    pk.innerHTML='';[['mc','Multiple choice'],['order','Sentence building'],['trans','Translation']].forEach(([k,t])=>{const b=el(`<button class="chip" aria-pressed="${sel.k.has(k)}">${t}</button>`);b.onclick=()=>{sel.k.has(k)?sel.k.delete(k):sel.k.add(k);draw()};pk.appendChild(b)});
+    pn.innerHTML='';[10,15,25,'All'].forEach(k=>{const b=el(`<button class="chip" aria-pressed="${sel.n===k}">${k}</button>`);b.onclick=()=>{sel.n=k;draw()};pn.appendChild(b)});
+    const a=avail().length;pc.textContent=a+' questions match';$('#pstart',m).disabled=!a;
+  }
+  $('#pstart',m).onclick=()=>{const mk=()=>{const a=shuffle(avail());return sel.n==='All'?a:a.slice(0,sel.n)};const h=$('#pq',m);h.style.marginTop='18px';runQuiz(h,mk(),{title:'Practice',again:()=>runQuiz(h,mk(),{title:'Practice'})});h.scrollIntoView({behavior:'smooth'})};
+  draw();
+},
+
+reading(m){
+  m.innerHTML=`<h1>阅读 Reading</h1><p class="lead">Five passages written with Lessons 16–19 vocabulary and grammar. Read, answer the questions, then check the translation.</p><div class="lessons" id="rl"></div><div id="rb" style="margin-top:22px"></div>`;
+  const rl=$('#rl',m),rb=$('#rb',m);
+  READINGS.forEach(r=>{const b=el(`<button class="lesson"><div class="t">${esc(r.title)}</div><div class="s">${r.id==='r5'?'Lessons 16–19 combined':LNAME[r.L]+' · '+LEN[r.L]} · ${r.qs.length} questions</div></button>`);b.onclick=()=>open(r);rl.appendChild(b)});
+  function open(r){
+    rb.innerHTML='';
+    const head=el(`<div><h2 style="margin-top:0" class="hz">${esc(r.title)}</h2><div class="passage">${r.text.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="row" style="margin-bottom:14px"><button class="btn ghost">Show English translation</button></div><div class="trans" hidden>${esc(r.en)}</div></div>`);
+    const tb=$('button',head),tx=$('.trans',head);tb.onclick=()=>{tx.hidden=!tx.hidden;tb.textContent=tx.hidden?'Show English translation':'Hide translation'};
+    const qh=el('<div></div>');rb.appendChild(qh);
+    runQuiz(qh,r.qs,{title:r.title,header:head});
+    rb.scrollIntoView({behavior:'smooth'});
+  }
+},
+
+numbers(m){
+  m.innerHTML=`<h1>数字 Numbers & discounts</h1><p class="lead">Freshly generated every time, so you can drill these until they\u2019re automatic.</p>
+  <div class="panel"><h3>Reading big numbers</h3><p class="muted">Group digits in fours from the right: 亿 group, 万 group, last four. One 零 per gap.</p>
+  <div class="tablewrap"><table class="dir"><tr><td>1,000</td><td>一千</td><td>10,000</td><td>一万</td></tr><tr><td>100,000</td><td>十万</td><td>1,000,000</td><td>一百万</td></tr><tr><td>10,000,000</td><td>一千万</td><td>100,000,000</td><td>一亿</td></tr><tr><td>50,740</td><td>五万零七百四十</td><td>273,608</td><td>二十七万三千六百零八</td></tr></table></div>
+  <button class="btn" id="nb">Drill 10 numbers</button></div>
+  <div class="panel"><h3>打折 discounts</h3><p class="muted">The number is what you pay: 八折 = pay 80% = 20% off. 七五折 = 25% off. 五折 = half price.</p><button class="btn" id="zb">Drill 10 discounts</button></div>
+  <div id="nq"></div>`;
+  const h=$('#nq',m);
+  const n10=()=>Array.from({length:10},numQ),z10=()=>Array.from({length:10},zheQ);
+  $('#nb',m).onclick=()=>{runQuiz(h,n10(),{title:'Numbers',again:()=>runQuiz(h,n10(),{title:'Numbers'})});h.scrollIntoView({behavior:'smooth'})};
+  $('#zb',m).onclick=()=>{runQuiz(h,z10(),{title:'Discounts',again:()=>runQuiz(h,z10(),{title:'Discounts'})});h.scrollIntoView({behavior:'smooth'})};
+},
+
+writing(m){
+  let mode='words',src='star',L=17,list=[],i=0;
+  m.innerHTML=`<h1>写字 Handwriting</h1><p class="lead">Part VI is handwritten translation. Write each word from memory in the grid with your finger, stylus, or mouse, then reveal to compare stroke shapes.</p>
+  <div class="row" id="wm" style="margin-bottom:16px"></div><div id="wb"></div>`;
+  const wm=$('#wm',m),wb=$('#wb',m);
+  function chips(){
+    wm.innerHTML='';
+    [['words','Write words'],['sent','Sentence translation']].forEach(([k,t])=>{const b=el(`<button class="chip" aria-pressed="${mode===k}">${t}</button>`);b.onclick=()=>{mode=k;chips();start()};wm.appendChild(b)});
+    if(mode==='words'){
+      [['star','★ words'],['16','All L16'],['17','All L17'],['18','All L18'],['19','All L19']].forEach(([k,t])=>{const b=el(`<button class="chip" aria-pressed="${src===k}">${t}</button>`);b.onclick=()=>{src=k;chips();start()};wm.appendChild(b)});
+    }
+  }
+  function start(){
+    i=0;
+    if(mode==='sent'){list=shuffle(HWS);return sent()}
+    list=src==='star'?shuffle(HW):shuffle(VOCAB.filter(v=>v.L==+src).map(v=>({h:v.h.split(/[／/]/)[0].replace(/[^\u4e00-\u9fff]/g,''),p:v.p,e:v.e})).filter(v=>v.h.length&&v.h.length<=5));
+    word();
+  }
+  function word(){
+    wb.innerHTML='';
+    if(i>=list.length){wb.innerHTML='<div class="empty">Set complete.<div class="row" style="justify-content:center;margin-top:12px"><button class="btn">Go again</button></div></div>';$('.btn',wb).onclick=start;return}
+    const w=list[i];const n=w.h.length;
+    const box=el(`<div class="panel"><div class="qmeta"><span>${i+1} / ${list.length}</span></div><div class="qprompt">${esc(w.e)}</div><div class="muted">${esc(w.p)}</div><div class="canvaswrap"><canvas></canvas><div class="overlay" hidden></div></div><div class="row"><button class="btn ghost" data-a="clear">Clear</button><button class="btn ghost" data-a="show">Reveal</button><button class="btn" data-a="next">Next word</button></div></div>`);
+    wb.appendChild(box);
+    const avail=Math.min(box.clientWidth-46,620);const size=Math.max(56,Math.min(130,Math.floor(avail/n)));
+    const cv=$('canvas',box),ov=$('.overlay',box);setupCanvas(cv,size,n);
+    ov.innerHTML=w.h.split('').map(c=>`<span style="width:${size}px;height:${size}px;font-size:${size*.78}px">${esc(c)}</span>`).join('');
+    box.querySelector('[data-a="clear"]').onclick=()=>setupCanvas(cv,size,n,true);
+    box.querySelector('[data-a="show"]').onclick=e=>{ov.hidden=!ov.hidden;e.target.textContent=ov.hidden?'Reveal':'Hide'};
+    box.querySelector('[data-a="next"]').onclick=()=>{i++;word()};
+  }
+  function sent(){
+    wb.innerHTML='';
+    if(i>=list.length){wb.innerHTML='<div class="empty">All sentences done.<div class="row" style="justify-content:center;margin-top:12px"><button class="btn">Go again</button></div></div>';$('.btn',wb).onclick=start;return}
+    const [en,zh]=list[i];
+    const box=el(`<div class="panel"><div class="qmeta"><span>${i+1} / ${list.length}</span></div><div class="qprompt">${esc(en)}</div><p class="muted">Write the Chinese on paper by hand, then reveal the model answer.</p><div class="feedback" style="background:var(--gridbg)" hidden><b>Model answer</b><span class="hz" style="font-size:24px">${esc(zh)}</span></div><div class="row" style="margin-top:14px"><button class="btn ghost">Reveal answer</button><button class="btn">Next sentence</button></div></div>`);
+    wb.appendChild(box);const [rv,nx]=box.querySelectorAll('.row button');
+    rv.onclick=()=>{$('.feedback',box).hidden=false};nx.onclick=()=>{i++;sent()};
+  }
+  chips();start();
+}
+
+,exam(m){
+  m.innerHTML=`<h1>考试 Mock exam</h1><p class="lead">A mixed exam across Lessons 16–19 (plus a little from earlier lessons): vocabulary, grammar, sentence building, one reading passage, numbers and discounts, and two translations. About 40 questions; allow 30–40 minutes.</p>
+  <div class="panel"><div class="row"><button class="btn" id="es">Start mock exam</button><span class="muted small">Each attempt draws a new set.</span></div></div><div id="eq"></div>`;
+  const build=()=>{
+    const r=READINGS[Math.floor(Math.random()*READINGS.length)];
+    const vocab=pick(VOCAB,10).map(v=>vocabQ(v,['h2e','e2h','h2p'][Math.floor(Math.random()*3)],VOCAB));
+    const gm=[...pick(Q.filter(q=>q.kind==='mc'&&q.L>=16),14),...pick(Q.filter(q=>q.L===15),2)];
+    const ords=pick(Q.filter(q=>q.kind==='order'),4);
+    const nums=[numQ(),numQ(),zheQ(),zheQ()];
+    const trs=pick(Q.filter(q=>q.kind==='trans'),2);
+    return {items:[...vocab,...shuffle(gm),...ords,...nums,...r.qs,...trs],r};
+  };
+  $('#es',m).onclick=()=>{
+    const h=$('#eq',m);h.style.marginTop='18px';
+    const startExam=()=>{
+      const {items,r}=build();
+      const head=el(`<details class="gcard" style="margin-bottom:14px"><summary><span class="gt">阅读：${esc(r.title)}</span><span class="ge">Open the passage when you reach the reading questions</span></summary><div class="gbody"><div class="passage">${r.text.map(p=>`<p>${esc(p)}</p>`).join('')}</div></div></details>`);
+      runQuiz(h,items,{title:'Mock exam',header:head,again:startExam});
+    };
+    startExam();h.scrollIntoView({behavior:'smooth'});
+  };
+},
+
+mistakes(m){
+  m.innerHTML=`<h1>错题 Mistakes</h1><p class="lead">Anything you miss lands here. Answer it correctly once and it\u2019s removed.</p><div id="mb"></div>`;
+  const mb=$('#mb',m);
+  if(!MISSES.length){mb.innerHTML='<div class="empty">Your mistake list is empty. Try a practice set or the mock exam.<div class="row" style="justify-content:center;margin-top:12px"><button class="btn">Go to practice</button></div></div>';$('.btn',mb).onclick=()=>go('practice');return}
+  const top=el(`<div class="row" style="margin-bottom:16px"><button class="btn">Retry all ${MISSES.length}</button><button class="btn ghost">Clear list</button></div>`);
+  const [ra,cl]=top.querySelectorAll('button');
+  ra.onclick=()=>{const h=el('<div></div>');mb.innerHTML='';mb.appendChild(h);runQuiz(h,shuffle(MISSES),{title:'Mistakes',again:()=>go('mistakes')})};
+  cl.onclick=()=>{if(confirm('Clear all saved mistakes?')){MISSES=[];store.set('ic19-miss',MISSES);renderNav();go('mistakes')}};
+  mb.appendChild(top);
+  const ul=el('<ul class="summary-list"></ul>');
+  MISSES.slice().reverse().forEach(q=>ul.appendChild(el(`<li><span class="badge">${LNAME[q.L]||''}</span>${qPreview(q)}</li>`)));
+  mb.appendChild(ul);
+}
+};
+
+/* ================= CANVAS ================= */
+function setupCanvas(cv,size,n,clearOnly){
+  const dpr=window.devicePixelRatio||1,W=size*n,H=size;
+  cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+'px';cv.style.height=H+'px';
+  const ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);
+  const cs=getComputedStyle(document.documentElement);
+  const grid=cs.getPropertyValue('--grid').trim(),gf=cs.getPropertyValue('--gridf').trim(),card=cs.getPropertyValue('--card').trim(),ink=cs.getPropertyValue('--ink').trim();
+  ctx.fillStyle=card;ctx.fillRect(0,0,W,H);
+  for(let k=0;k<n;k++){const x=k*size;
+    ctx.strokeStyle=gf;ctx.lineWidth=1;ctx.setLineDash([5,5]);ctx.beginPath();
+    ctx.moveTo(x+size/2,0);ctx.lineTo(x+size/2,H);ctx.moveTo(x,H/2);ctx.lineTo(x+size,H/2);
+    ctx.moveTo(x,0);ctx.lineTo(x+size,H);ctx.moveTo(x+size,0);ctx.lineTo(x,H);ctx.stroke();ctx.setLineDash([]);
+    ctx.strokeStyle=grid;ctx.lineWidth=1.5;ctx.strokeRect(x+.75,.75,size-1.5,H-1.5)}
+  if(clearOnly)return;
+  let drawing=false,last=null;
+  const pos=e=>{const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}};
+  cv.onpointerdown=e=>{drawing=true;last=pos(e);cv.setPointerCapture(e.pointerId);e.preventDefault()};
+  cv.onpointermove=e=>{if(!drawing)return;const p=pos(e);const c=cv.getContext('2d');c.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--ink').trim();c.lineWidth=Math.max(3,size*.055);c.lineCap='round';c.lineJoin='round';c.beginPath();c.moveTo(last.x,last.y);c.lineTo(p.x,p.y);c.stroke();last=p;e.preventDefault()};
+  const end=()=>{drawing=false};cv.onpointerup=end;cv.onpointercancel=end;cv.onpointerleave=end;
+}
+
+/* keyboard: number keys pick options, Enter advances */
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA'].includes(document.activeElement&&document.activeElement.tagName))return;
+  const boxes=[...document.querySelectorAll('.qwrap')];const box=boxes[boxes.length-1];if(!box)return;
+  if(/^[1-4]$/.test(e.key)&&!box.dataset.done){const o=box.querySelectorAll('.opt')[+e.key-1];if(o){o.click();e.preventDefault()}}
+});
+
+try{const t=store.get('ic19-theme',null);if(t)document.documentElement.dataset.theme=t}catch(e){}
+go('home');
+</script>
+</body>
+</html>
